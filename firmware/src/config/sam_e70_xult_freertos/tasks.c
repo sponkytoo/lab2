@@ -76,7 +76,18 @@ void _APP_Tasks(  void *pvParameters  )
     while(1)
     {
         APP_Tasks();
-        vTaskDelay(2 / portTICK_PERIOD_MS);
+        vTaskDelay(1 / portTICK_PERIOD_MS);
+    }
+}
+/* Handle for the GFX_Tasks. */
+TaskHandle_t xGFX_Tasks;
+
+void _GFX_Tasks(  void *pvParameters  )
+{
+    while(1)
+    {
+        GFX_Tasks();
+        vTaskDelay(1 / portTICK_PERIOD_MS);
     }
 }
 
@@ -202,6 +213,14 @@ void SYS_Tasks ( void )
                 NULL,
                 1,
                 &xAPP_Tasks);
+
+    /* Create OS Thread for GFX_Tasks. */
+    xTaskCreate((TaskFunction_t) _GFX_Tasks,
+                "GFX_Tasks",
+                1024,
+                NULL,
+                1,
+                &xGFX_Tasks);
 
 
 

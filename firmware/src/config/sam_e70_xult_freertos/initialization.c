@@ -675,6 +675,8 @@ void SYS_Initialize ( void* data )
      
     
 	BSP_Initialize();
+	SPI0_Initialize();
+
 	USART1_Initialize();
 
 	RSWDT_REGS->RSWDT_MR = RSWDT_MR_WDDIS_Msk;	// Disable RSWDT 

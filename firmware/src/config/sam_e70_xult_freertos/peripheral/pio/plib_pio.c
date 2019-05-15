@@ -63,16 +63,16 @@ void PIO_Initialize ( void )
     /* PORTA PIO Disable and Peripheral Enable*/
     ((pio_registers_t*)PIO_PORT_A)->PIO_PDR = 0x200000;
     /* PORTA Pull Up Enable/Disable as per MHC selection */
-    ((pio_registers_t*)PIO_PORT_A)->PIO_PUDR = ~0x800;
-    ((pio_registers_t*)PIO_PORT_A)->PIO_PUER = 0x800;
+    ((pio_registers_t*)PIO_PORT_A)->PIO_PUDR = ~0x804;
+    ((pio_registers_t*)PIO_PORT_A)->PIO_PUER = 0x804;
     /* PORTA Pull Down Enable/Disable as per MHC selection */
     ((pio_registers_t*)PIO_PORT_A)->PIO_PPDDR = 0xFFFFFFFF;
     /* PORTA Output Write Enable */
     ((pio_registers_t*)PIO_PORT_A)->PIO_OWER = PIO_OWER_Msk;
     /* PORTA Output Direction Enable */
-    ((pio_registers_t*)PIO_PORT_A)->PIO_OER = 0x20;
+    ((pio_registers_t*)PIO_PORT_A)->PIO_OER = 0x1000060;
     /* PORTA Initial state High */
-    ((pio_registers_t*)PIO_PORT_A)->PIO_SODR = 0x20;
+    ((pio_registers_t*)PIO_PORT_A)->PIO_SODR = 0x1000060;
 
     /************************ PIO B Initialization ************************/
     /* PORTB Peripheral Function Selection */
@@ -93,21 +93,34 @@ void PIO_Initialize ( void )
 
     /************************ PIO C Initialization ************************/
     /* PORTC Pull Up Enable/Disable as per MHC selection */
-    ((pio_registers_t*)PIO_PORT_C)->PIO_PUDR = 0xFFFFFFFF;
+    ((pio_registers_t*)PIO_PORT_C)->PIO_PUDR = ~0x4000000;
+    ((pio_registers_t*)PIO_PORT_C)->PIO_PUER = 0x4000000;
     /* PORTC Pull Down Enable/Disable as per MHC selection */
     ((pio_registers_t*)PIO_PORT_C)->PIO_PPDDR = 0xFFFFFFFF;
     /* PORTC Output Write Enable */
     ((pio_registers_t*)PIO_PORT_C)->PIO_OWER = PIO_OWER_Msk;
+    /* PORTC Output Direction Enable */
+    ((pio_registers_t*)PIO_PORT_C)->PIO_OER = 0x80000;
+    /* PORTC Initial state High */
+    ((pio_registers_t*)PIO_PORT_C)->PIO_SODR = 0x80000;
 
     /************************ PIO D Initialization ************************/
+    /* PORTD Peripheral Function Selection */
+    ((pio_registers_t*)PIO_PORT_D)->PIO_ABCDSR[0]= 0x700000;
+    ((pio_registers_t*)PIO_PORT_D)->PIO_ABCDSR[1]= 0x0;
     /* PORTD PIO Disable and Peripheral Enable*/
-    ((pio_registers_t*)PIO_PORT_D)->PIO_PDR = 0x3ff;
+    ((pio_registers_t*)PIO_PORT_D)->PIO_PDR = 0x7003ff;
     /* PORTD Pull Up Enable/Disable as per MHC selection */
-    ((pio_registers_t*)PIO_PORT_D)->PIO_PUDR = 0xFFFFFFFF;
+    ((pio_registers_t*)PIO_PORT_D)->PIO_PUDR = ~0x40000000;
+    ((pio_registers_t*)PIO_PORT_D)->PIO_PUER = 0x40000000;
     /* PORTD Pull Down Enable/Disable as per MHC selection */
     ((pio_registers_t*)PIO_PORT_D)->PIO_PPDDR = 0xFFFFFFFF;
     /* PORTD Output Write Enable */
     ((pio_registers_t*)PIO_PORT_D)->PIO_OWER = PIO_OWER_Msk;
+    /* PORTD Output Direction Enable */
+    ((pio_registers_t*)PIO_PORT_D)->PIO_OER = 0xc000800;
+    /* PORTD Initial state High */
+    ((pio_registers_t*)PIO_PORT_D)->PIO_SODR = 0xc000800;
 
     /************************ PIO E Initialization ************************/
     /* PORTE Pull Up Enable/Disable as per MHC selection */

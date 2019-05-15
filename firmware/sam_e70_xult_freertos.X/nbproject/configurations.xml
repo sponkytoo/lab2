@@ -286,27 +286,31 @@
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f2" displayName="peripheral" projectFiles="true">
-            <logicalFolder name="f4" displayName="clk" projectFiles="true">
+            <logicalFolder name="f5" displayName="clk" projectFiles="true">
               <itemPath>../src/config/sam_e70_xult_freertos/peripheral/clk/plib_clk.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f1" displayName="efc" projectFiles="true">
               <itemPath>../src/config/sam_e70_xult_freertos/peripheral/efc/plib_efc.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f7" displayName="mpu" projectFiles="true">
+            <logicalFolder name="f8" displayName="mpu" projectFiles="true">
               <itemPath>../src/config/sam_e70_xult_freertos/peripheral/mpu/plib_mpu.h</itemPath>
               <itemPath>../src/config/sam_e70_xult_freertos/peripheral/mpu/plib_mpu_local.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f6" displayName="nvic" projectFiles="true">
+            <logicalFolder name="f7" displayName="nvic" projectFiles="true">
               <itemPath>../src/config/sam_e70_xult_freertos/peripheral/nvic/plib_nvic.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f5" displayName="pio" projectFiles="true">
+            <logicalFolder name="f6" displayName="pio" projectFiles="true">
               <itemPath>../src/config/sam_e70_xult_freertos/peripheral/pio/plib_pio.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f3" displayName="spi" projectFiles="true">
+              <itemPath>../src/config/sam_e70_xult_freertos/peripheral/spi/plib_spi_common.h</itemPath>
+              <itemPath>../src/config/sam_e70_xult_freertos/peripheral/spi/plib_spi0.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f2" displayName="tc" projectFiles="true">
               <itemPath>../src/config/sam_e70_xult_freertos/peripheral/tc/plib_tc0.h</itemPath>
               <itemPath>../src/config/sam_e70_xult_freertos/peripheral/tc/plib_tc_common.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f3" displayName="usart" projectFiles="true">
+            <logicalFolder name="f4" displayName="usart" projectFiles="true">
               <itemPath>../src/config/sam_e70_xult_freertos/peripheral/usart/plib_usart_common.h</itemPath>
               <itemPath>../src/config/sam_e70_xult_freertos/peripheral/usart/plib_usart1.h</itemPath>
             </logicalFolder>
@@ -476,6 +480,7 @@
       </logicalFolder>
       <itemPath>../src/http_net_print.h</itemPath>
       <itemPath>../src/app.h</itemPath>
+      <itemPath>../src/gfx.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -629,25 +634,28 @@
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f3" displayName="peripheral" projectFiles="true">
-            <logicalFolder name="f4" displayName="clk" projectFiles="true">
+            <logicalFolder name="f5" displayName="clk" projectFiles="true">
               <itemPath>../src/config/sam_e70_xult_freertos/peripheral/clk/plib_clk.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f1" displayName="efc" projectFiles="true">
               <itemPath>../src/config/sam_e70_xult_freertos/peripheral/efc/plib_efc.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f7" displayName="mpu" projectFiles="true">
+            <logicalFolder name="f8" displayName="mpu" projectFiles="true">
               <itemPath>../src/config/sam_e70_xult_freertos/peripheral/mpu/plib_mpu.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f6" displayName="nvic" projectFiles="true">
+            <logicalFolder name="f7" displayName="nvic" projectFiles="true">
               <itemPath>../src/config/sam_e70_xult_freertos/peripheral/nvic/plib_nvic.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f5" displayName="pio" projectFiles="true">
+            <logicalFolder name="f6" displayName="pio" projectFiles="true">
               <itemPath>../src/config/sam_e70_xult_freertos/peripheral/pio/plib_pio.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f3" displayName="spi" projectFiles="true">
+              <itemPath>../src/config/sam_e70_xult_freertos/peripheral/spi/plib_spi0.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f2" displayName="tc" projectFiles="true">
               <itemPath>../src/config/sam_e70_xult_freertos/peripheral/tc/plib_tc0.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f3" displayName="usart" projectFiles="true">
+            <logicalFolder name="f4" displayName="usart" projectFiles="true">
               <itemPath>../src/config/sam_e70_xult_freertos/peripheral/usart/plib_usart1.c</itemPath>
             </logicalFolder>
           </logicalFolder>
@@ -714,14 +722,43 @@
           <itemPath>../src/third_party/rtos/FreeRTOS/Source/stream_buffer.c</itemPath>
         </logicalFolder>
       </logicalFolder>
+      <logicalFolder name="f5" displayName="gfx_mono" projectFiles="true">
+        <logicalFolder name="f1" displayName="New Folder 1" projectFiles="true">
+        </logicalFolder>
+        <itemPath>../src/gfx_mono/gfx_mono.h</itemPath>
+        <itemPath>../src/gfx_mono/gfx_mono_framebuffer.c</itemPath>
+        <itemPath>../src/gfx_mono/gfx_mono_framebuffer.h</itemPath>
+        <itemPath>../src/gfx_mono/gfx_mono_generic.c</itemPath>
+        <itemPath>../src/gfx_mono/gfx_mono_generic.h</itemPath>
+        <itemPath>../src/gfx_mono/gfx_mono_text.c</itemPath>
+        <itemPath>../src/gfx_mono/gfx_mono_text.h</itemPath>
+        <itemPath>../src/gfx_mono/gfx_mono_ug_2832hsweg04.c</itemPath>
+        <itemPath>../src/gfx_mono/gfx_mono_ug_2832hsweg04.h</itemPath>
+        <itemPath>../src/gfx_mono/gfx_ssd1306.c</itemPath>
+        <itemPath>../src/gfx_mono/gfx_ssd1306.h</itemPath>
+        <itemPath>../src/gfx_mono/gfx_sysfont.c</itemPath>
+        <itemPath>../src/gfx_mono/gfx_sysfont.h</itemPath>
+      </logicalFolder>
       <logicalFolder name="f3" displayName="osal" projectFiles="true">
         <itemPath>../src/config/sam_e70_xult_freertos/osal/osal_freertos.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="web_pages" projectFiles="true">
         <logicalFolder name="f1" displayName="dyndns" projectFiles="true">
           <itemPath>../src/web_pages/dyndns/index.htm</itemPath>
+          <itemPath>../src/web_pages/dyndns/index.htm</itemPath>
+          <itemPath>../src/web_pages/dyndns/index.htm</itemPath>
+          <itemPath>../src/web_pages/dyndns/index.htm</itemPath>
+          <itemPath>../src/web_pages/dyndns/index.htm</itemPath>
+          <itemPath>../src/web_pages/dyndns/index.htm</itemPath>
+          <itemPath>../src/web_pages/dyndns/index.htm</itemPath>
         </logicalFolder>
         <logicalFolder name="f2" displayName="email" projectFiles="true">
+          <itemPath>../src/web_pages/email/index.htm</itemPath>
+          <itemPath>../src/web_pages/email/index.htm</itemPath>
+          <itemPath>../src/web_pages/email/index.htm</itemPath>
+          <itemPath>../src/web_pages/email/index.htm</itemPath>
+          <itemPath>../src/web_pages/email/index.htm</itemPath>
+          <itemPath>../src/web_pages/email/index.htm</itemPath>
           <itemPath>../src/web_pages/email/index.htm</itemPath>
         </logicalFolder>
         <logicalFolder name="f3" displayName="protect" projectFiles="true">
@@ -729,10 +766,42 @@
           <itemPath>../src/web_pages/protect/index.htm</itemPath>
           <itemPath>../src/web_pages/protect/reboot.cgi</itemPath>
           <itemPath>../src/web_pages/protect/reboot.htm</itemPath>
+          <itemPath>../src/web_pages/protect/config.htm</itemPath>
+          <itemPath>../src/web_pages/protect/index.htm</itemPath>
+          <itemPath>../src/web_pages/protect/reboot.cgi</itemPath>
+          <itemPath>../src/web_pages/protect/reboot.htm</itemPath>
+          <itemPath>../src/web_pages/protect/config.htm</itemPath>
+          <itemPath>../src/web_pages/protect/index.htm</itemPath>
+          <itemPath>../src/web_pages/protect/reboot.cgi</itemPath>
+          <itemPath>../src/web_pages/protect/reboot.htm</itemPath>
+          <itemPath>../src/web_pages/protect/config.htm</itemPath>
+          <itemPath>../src/web_pages/protect/index.htm</itemPath>
+          <itemPath>../src/web_pages/protect/reboot.cgi</itemPath>
+          <itemPath>../src/web_pages/protect/reboot.htm</itemPath>
+          <itemPath>../src/web_pages/protect/config.htm</itemPath>
+          <itemPath>../src/web_pages/protect/index.htm</itemPath>
+          <itemPath>../src/web_pages/protect/reboot.cgi</itemPath>
+          <itemPath>../src/web_pages/protect/reboot.htm</itemPath>
+          <itemPath>../src/web_pages/protect/config.htm</itemPath>
+          <itemPath>../src/web_pages/protect/index.htm</itemPath>
+          <itemPath>../src/web_pages/protect/reboot.cgi</itemPath>
+          <itemPath>../src/web_pages/protect/reboot.htm</itemPath>
+          <itemPath>../src/web_pages/protect/config.htm</itemPath>
+          <itemPath>../src/web_pages/protect/index.htm</itemPath>
+          <itemPath>../src/web_pages/protect/reboot.cgi</itemPath>
+          <itemPath>../src/web_pages/protect/reboot.htm</itemPath>
         </logicalFolder>
         <logicalFolder name="f4" displayName="snmp" projectFiles="true">
           <itemPath>../src/web_pages/snmp/snmpconfig.htm</itemPath>
+          <itemPath>../src/web_pages/snmp/snmpconfig.htm</itemPath>
+          <itemPath>../src/web_pages/snmp/snmpconfig.htm</itemPath>
+          <itemPath>../src/web_pages/snmp/snmpconfig.htm</itemPath>
+          <itemPath>../src/web_pages/snmp/snmpconfig.htm</itemPath>
+          <itemPath>../src/web_pages/snmp/snmpconfig.htm</itemPath>
+          <itemPath>../src/web_pages/snmp/snmpconfig.htm</itemPath>
         </logicalFolder>
+        <itemPath>../src/web_pages/VM.htm</itemPath>
+        <itemPath>../src/web_pages/My_Data.xml</itemPath>
         <itemPath>../src/web_pages/auth.htm</itemPath>
         <itemPath>../src/web_pages/cookies.htm</itemPath>
         <itemPath>../src/web_pages/dynvars.htm</itemPath>
@@ -749,13 +818,12 @@
         <itemPath>../src/web_pages/ssi.htm</itemPath>
         <itemPath>../src/web_pages/status.xml</itemPath>
         <itemPath>../src/web_pages/upload.htm</itemPath>
-        <itemPath>../src/web_pages/VM.htm</itemPath>
-        <itemPath>../src/web_pages/My_Data.xml</itemPath>
       </logicalFolder>
       <itemPath>../src/http_net_print.c</itemPath>
       <itemPath>../src/custom_http_net_app.c</itemPath>
       <itemPath>../src/mpfs_net_img.c</itemPath>
       <itemPath>../src/app.c</itemPath>
+      <itemPath>../src/gfx.c</itemPath>
       <itemPath>../src/main.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
@@ -781,8 +849,8 @@
         <platform>4</platform>
       </toolsSet>
       <packs>
-        <pack name="CMSIS" vendor="ARM" version="5.0.1"/>
         <pack name="SAME70_DFP" vendor="Microchip" version="3.0.10"/>
+        <pack name="CMSIS" vendor="ARM" version="5.0.1"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -846,11 +914,11 @@
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
         <property key="make-warnings-into-errors" value="true"/>
-        <property key="optimization-level" value="-O1"/>
+        <property key="optimization-level" value=""/>
         <property key="place-data-into-section" value="true"/>
         <property key="post-instruction-scheduling" value="default"/>
         <property key="pre-instruction-scheduling" value="default"/>
-        <property key="preprocessor-macros" value=""/>
+        <property key="preprocessor-macros" value="GFX_MONO_UG_2832HSWEG04"/>
         <property key="strict-ansi" value="false"/>
         <property key="support-ansi" value="false"/>
         <property key="toplevel-reordering" value=""/>

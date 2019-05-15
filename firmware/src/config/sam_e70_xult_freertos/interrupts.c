@@ -101,7 +101,7 @@ void PIOE_Handler               ( void ) __attribute__((weak, alias("Dummy_Handl
 void HSMCI_Handler              ( void ) __attribute__((weak, alias("Dummy_Handler")));
 void TWIHS0_Handler             ( void ) __attribute__((weak, alias("Dummy_Handler")));
 void TWIHS1_Handler             ( void ) __attribute__((weak, alias("Dummy_Handler")));
-void SPI0_Handler               ( void ) __attribute__((weak, alias("Dummy_Handler")));
+void SPI0_InterruptHandler      ( void ) __attribute__((weak, alias("Dummy_Handler")));
 void SSC_Handler                ( void ) __attribute__((weak, alias("Dummy_Handler")));
 void TC0_CH0_InterruptHandler   ( void ) __attribute__((weak, alias("Dummy_Handler")));
 void TC0_CH1_Handler            ( void ) __attribute__((weak, alias("Dummy_Handler")));
@@ -194,7 +194,7 @@ const DeviceVectors exception_table=
     .pfnHSMCI_Handler              = ( void * ) HSMCI_Handler,
     .pfnTWIHS0_Handler             = ( void * ) TWIHS0_Handler,
     .pfnTWIHS1_Handler             = ( void * ) TWIHS1_Handler,
-    .pfnSPI0_Handler               = ( void * ) SPI0_Handler,
+    .pfnSPI0_Handler               = ( void * ) SPI0_InterruptHandler,
     .pfnSSC_Handler                = ( void * ) SSC_Handler,
     .pfnTC0_CH0_Handler            = ( void * ) TC0_CH0_InterruptHandler,
     .pfnTC0_CH1_Handler            = ( void * ) TC0_CH1_Handler,

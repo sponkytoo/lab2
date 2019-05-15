@@ -62,6 +62,51 @@
 // *****************************************************************************
 
 
+/*** Macros for BUTTON_3 pin ***/
+#define BUTTON_3_Set()               (PIOC_REGS->PIO_SODR = (1<<26))
+#define BUTTON_3_Clear()             (PIOC_REGS->PIO_CODR = (1<<26))
+#define BUTTON_3_Toggle()            (PIOC_REGS->PIO_ODSR ^= (1<<26))
+#define BUTTON_3_Get()               ((PIOC_REGS->PIO_PDSR >> 26) & 0x1)
+#define BUTTON_3_OutputEnable()      (PIOC_REGS->PIO_OER = (1<<26))
+#define BUTTON_3_InputEnable()       (PIOC_REGS->PIO_ODR = (1<<26))
+#define BUTTON_3_PIN                  PIO_PIN_PC26
+
+/*** Macros for BUTTON_2 pin ***/
+#define BUTTON_2_Set()               (PIOD_REGS->PIO_SODR = (1<<30))
+#define BUTTON_2_Clear()             (PIOD_REGS->PIO_CODR = (1<<30))
+#define BUTTON_2_Toggle()            (PIOD_REGS->PIO_ODSR ^= (1<<30))
+#define BUTTON_2_Get()               ((PIOD_REGS->PIO_PDSR >> 30) & 0x1)
+#define BUTTON_2_OutputEnable()      (PIOD_REGS->PIO_OER = (1<<30))
+#define BUTTON_2_InputEnable()       (PIOD_REGS->PIO_ODR = (1<<30))
+#define BUTTON_2_PIN                  PIO_PIN_PD30
+
+/*** Macros for DISPLAY_SS_N pin ***/
+#define DISPLAY_SS_N_Set()               (PIOD_REGS->PIO_SODR = (1<<27))
+#define DISPLAY_SS_N_Clear()             (PIOD_REGS->PIO_CODR = (1<<27))
+#define DISPLAY_SS_N_Toggle()            (PIOD_REGS->PIO_ODSR ^= (1<<27))
+#define DISPLAY_SS_N_Get()               ((PIOD_REGS->PIO_PDSR >> 27) & 0x1)
+#define DISPLAY_SS_N_OutputEnable()      (PIOD_REGS->PIO_OER = (1<<27))
+#define DISPLAY_SS_N_InputEnable()       (PIOD_REGS->PIO_ODR = (1<<27))
+#define DISPLAY_SS_N_PIN                  PIO_PIN_PD27
+
+/*** Macros for LED_2 pin ***/
+#define LED_2_Set()               (PIOD_REGS->PIO_SODR = (1<<26))
+#define LED_2_Clear()             (PIOD_REGS->PIO_CODR = (1<<26))
+#define LED_2_Toggle()            (PIOD_REGS->PIO_ODSR ^= (1<<26))
+#define LED_2_Get()               ((PIOD_REGS->PIO_PDSR >> 26) & 0x1)
+#define LED_2_OutputEnable()      (PIOD_REGS->PIO_OER = (1<<26))
+#define LED_2_InputEnable()       (PIOD_REGS->PIO_ODR = (1<<26))
+#define LED_2_PIN                  PIO_PIN_PD26
+
+/*** Macros for DISPLAY_RESET pin ***/
+#define DISPLAY_RESET_Set()               (PIOA_REGS->PIO_SODR = (1<<24))
+#define DISPLAY_RESET_Clear()             (PIOA_REGS->PIO_CODR = (1<<24))
+#define DISPLAY_RESET_Toggle()            (PIOA_REGS->PIO_ODSR ^= (1<<24))
+#define DISPLAY_RESET_Get()               ((PIOA_REGS->PIO_PDSR >> 24) & 0x1)
+#define DISPLAY_RESET_OutputEnable()      (PIOA_REGS->PIO_OER = (1<<24))
+#define DISPLAY_RESET_InputEnable()       (PIOA_REGS->PIO_ODR = (1<<24))
+#define DISPLAY_RESET_PIN                  PIO_PIN_PA24
+
 /*** Macros for SWITCH pin ***/
 #define SWITCH_Set()               (PIOA_REGS->PIO_SODR = (1<<11))
 #define SWITCH_Clear()             (PIOA_REGS->PIO_CODR = (1<<11))
@@ -88,6 +133,42 @@
 #define LED1_OutputEnable()      (PIOC_REGS->PIO_OER = (1<<8))
 #define LED1_InputEnable()       (PIOC_REGS->PIO_ODR = (1<<8))
 #define LED1_PIN                  PIO_PIN_PC8
+
+/*** Macros for BUTTON_1 pin ***/
+#define BUTTON_1_Set()               (PIOA_REGS->PIO_SODR = (1<<2))
+#define BUTTON_1_Clear()             (PIOA_REGS->PIO_CODR = (1<<2))
+#define BUTTON_1_Toggle()            (PIOA_REGS->PIO_ODSR ^= (1<<2))
+#define BUTTON_1_Get()               ((PIOA_REGS->PIO_PDSR >> 2) & 0x1)
+#define BUTTON_1_OutputEnable()      (PIOA_REGS->PIO_OER = (1<<2))
+#define BUTTON_1_InputEnable()       (PIOA_REGS->PIO_ODR = (1<<2))
+#define BUTTON_1_PIN                  PIO_PIN_PA2
+
+/*** Macros for LED_3 pin ***/
+#define LED_3_Set()               (PIOD_REGS->PIO_SODR = (1<<11))
+#define LED_3_Clear()             (PIOD_REGS->PIO_CODR = (1<<11))
+#define LED_3_Toggle()            (PIOD_REGS->PIO_ODSR ^= (1<<11))
+#define LED_3_Get()               ((PIOD_REGS->PIO_PDSR >> 11) & 0x1)
+#define LED_3_OutputEnable()      (PIOD_REGS->PIO_OER = (1<<11))
+#define LED_3_InputEnable()       (PIOD_REGS->PIO_ODR = (1<<11))
+#define LED_3_PIN                  PIO_PIN_PD11
+
+/*** Macros for DATA_CMD_SEL pin ***/
+#define DATA_CMD_SEL_Set()               (PIOA_REGS->PIO_SODR = (1<<6))
+#define DATA_CMD_SEL_Clear()             (PIOA_REGS->PIO_CODR = (1<<6))
+#define DATA_CMD_SEL_Toggle()            (PIOA_REGS->PIO_ODSR ^= (1<<6))
+#define DATA_CMD_SEL_Get()               ((PIOA_REGS->PIO_PDSR >> 6) & 0x1)
+#define DATA_CMD_SEL_OutputEnable()      (PIOA_REGS->PIO_OER = (1<<6))
+#define DATA_CMD_SEL_InputEnable()       (PIOA_REGS->PIO_ODR = (1<<6))
+#define DATA_CMD_SEL_PIN                  PIO_PIN_PA6
+
+/*** Macros for LED_1 pin ***/
+#define LED_1_Set()               (PIOC_REGS->PIO_SODR = (1<<19))
+#define LED_1_Clear()             (PIOC_REGS->PIO_CODR = (1<<19))
+#define LED_1_Toggle()            (PIOC_REGS->PIO_ODSR ^= (1<<19))
+#define LED_1_Get()               ((PIOC_REGS->PIO_PDSR >> 19) & 0x1)
+#define LED_1_OutputEnable()      (PIOC_REGS->PIO_OER = (1<<19))
+#define LED_1_InputEnable()       (PIOC_REGS->PIO_ODR = (1<<19))
+#define LED_1_PIN                  PIO_PIN_PC19
 
 /*** Macros for LED3 pin ***/
 #define LED3_Set()               (PIOB_REGS->PIO_SODR = (1<<8))

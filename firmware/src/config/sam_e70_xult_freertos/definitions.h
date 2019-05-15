@@ -55,6 +55,7 @@
 #include "system/time/sys_time.h"
 #include "bsp/bsp.h"
 #include "driver/memory/drv_memory_efc.h"
+#include "peripheral/spi/plib_spi0.h"
 #include "net_pres/pres/net_pres.h"
 #include "net_pres/pres/net_pres_encryptionproviderapi.h"
 #include "net_pres/pres/net_pres_transportapi.h"
@@ -83,8 +84,11 @@
 #include "FreeRTOS.h"
 #include "task.h"
 #include "app.h"
+#include "gfx.h"
 
-
+#include "../../gfx_mono/gfx_ssd1306.h"
+#include "../../gfx_mono/gfx_mono_ug_2832hsweg04.h"
+#include "../../gfx_mono/gfx_mono_text.h"
 
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
