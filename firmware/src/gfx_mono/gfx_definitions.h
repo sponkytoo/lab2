@@ -22,12 +22,9 @@
 #include "../config/sam_e70_xult_freertos/peripheral/pio/plib_pio.h"
 #include "../config/sam_e70_xult_freertos/peripheral/spi/plib_spi0.h"
 
+#define GFX_MONO_UG_2832HSWEG04
 #include "../../gfx_mono/gfx_mono_text.h"
 
-/* This section lists the other files that are included in this file.
- */
-
-/* TODO:  Include other files here if needed. */
 
 
 /* Provide C++ Compatibility */
