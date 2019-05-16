@@ -63,13 +63,13 @@
 
 
 /*** Macros for BUTTON_3 pin ***/
-#define BUTTON_3_Set()               (PIOC_REGS->PIO_SODR = (1<<26))
-#define BUTTON_3_Clear()             (PIOC_REGS->PIO_CODR = (1<<26))
-#define BUTTON_3_Toggle()            (PIOC_REGS->PIO_ODSR ^= (1<<26))
-#define BUTTON_3_Get()               ((PIOC_REGS->PIO_PDSR >> 26) & 0x1)
-#define BUTTON_3_OutputEnable()      (PIOC_REGS->PIO_OER = (1<<26))
-#define BUTTON_3_InputEnable()       (PIOC_REGS->PIO_ODR = (1<<26))
-#define BUTTON_3_PIN                  PIO_PIN_PC26
+#define BUTTON_3_Set()               (PIOC_REGS->PIO_SODR = (1<<13))
+#define BUTTON_3_Clear()             (PIOC_REGS->PIO_CODR = (1<<13))
+#define BUTTON_3_Toggle()            (PIOC_REGS->PIO_ODSR ^= (1<<13))
+#define BUTTON_3_Get()               ((PIOC_REGS->PIO_PDSR >> 13) & 0x1)
+#define BUTTON_3_OutputEnable()      (PIOC_REGS->PIO_OER = (1<<13))
+#define BUTTON_3_InputEnable()       (PIOC_REGS->PIO_ODR = (1<<13))
+#define BUTTON_3_PIN                  PIO_PIN_PC13
 
 /*** Macros for BUTTON_2 pin ***/
 #define BUTTON_2_Set()               (PIOD_REGS->PIO_SODR = (1<<30))

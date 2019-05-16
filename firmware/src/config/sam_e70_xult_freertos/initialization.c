@@ -709,6 +709,7 @@ void SYS_Initialize ( void* data )
 
 
     APP_Initialize();
+    MMI_Initialize();
 
 
     NVIC_Initialize();

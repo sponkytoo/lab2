@@ -43,7 +43,7 @@
 /*
  * Support and FAQ: visit <a href="http://www.atmel.com/design-support/">Atmel Support</a>
  */
-
+#include "gfx_definitions.h"
 #include "gfx_mono_framebuffer.h"
 
 /* Pointer to the framebuffer; updated by the gfx_mono_set_framebuffer function */

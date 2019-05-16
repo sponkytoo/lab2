@@ -48,6 +48,8 @@
 #include <stddef.h>
 #include <assert.h>
 
+#include "gfx_definitions.h"
+#include "gfx_mono_text.h"
 #include "gfx_sysfont.h"
 #include "gfx_mono.h"
 

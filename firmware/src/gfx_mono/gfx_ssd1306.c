@@ -43,7 +43,9 @@
 /*
  * Support and FAQ: visit <a href="http://www.atmel.com/design-support/">Atmel Support</a>
  */
+#include "gfx_definitions.h"
 #include "gfx_ssd1306.h"
+#include "gfx_mono_ug_2832hsweg04.h"
 
 //TODO struct spi_module ssd1306_master;
 //TODO struct spi_slave_inst ssd1306_slave;

@@ -46,7 +46,6 @@
 #ifndef SSD1306_H_INCLUDED
 #define SSD1306_H_INCLUDED
 
-#include "definitions.h"                // SYS function prototypes
 
 // controller and OLED configuration file
 //#include "conf_ssd1306.h"

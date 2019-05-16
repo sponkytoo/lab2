@@ -480,7 +480,7 @@
       </logicalFolder>
       <itemPath>../src/http_net_print.h</itemPath>
       <itemPath>../src/app.h</itemPath>
-      <itemPath>../src/gfx.h</itemPath>
+      <itemPath>../src/mmi.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -723,8 +723,6 @@
         </logicalFolder>
       </logicalFolder>
       <logicalFolder name="f5" displayName="gfx_mono" projectFiles="true">
-        <logicalFolder name="f1" displayName="New Folder 1" projectFiles="true">
-        </logicalFolder>
         <itemPath>../src/gfx_mono/gfx_mono.h</itemPath>
         <itemPath>../src/gfx_mono/gfx_mono_framebuffer.c</itemPath>
         <itemPath>../src/gfx_mono/gfx_mono_framebuffer.h</itemPath>
@@ -738,6 +736,7 @@
         <itemPath>../src/gfx_mono/gfx_ssd1306.h</itemPath>
         <itemPath>../src/gfx_mono/gfx_sysfont.c</itemPath>
         <itemPath>../src/gfx_mono/gfx_sysfont.h</itemPath>
+        <itemPath>../src/gfx_mono/gfx_definitions.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f3" displayName="osal" projectFiles="true">
         <itemPath>../src/config/sam_e70_xult_freertos/osal/osal_freertos.c</itemPath>
@@ -748,14 +747,8 @@
           <itemPath>../src/web_pages/dyndns/index.htm</itemPath>
           <itemPath>../src/web_pages/dyndns/index.htm</itemPath>
           <itemPath>../src/web_pages/dyndns/index.htm</itemPath>
-          <itemPath>../src/web_pages/dyndns/index.htm</itemPath>
-          <itemPath>../src/web_pages/dyndns/index.htm</itemPath>
-          <itemPath>../src/web_pages/dyndns/index.htm</itemPath>
         </logicalFolder>
         <logicalFolder name="f2" displayName="email" projectFiles="true">
-          <itemPath>../src/web_pages/email/index.htm</itemPath>
-          <itemPath>../src/web_pages/email/index.htm</itemPath>
-          <itemPath>../src/web_pages/email/index.htm</itemPath>
           <itemPath>../src/web_pages/email/index.htm</itemPath>
           <itemPath>../src/web_pages/email/index.htm</itemPath>
           <itemPath>../src/web_pages/email/index.htm</itemPath>
@@ -778,23 +771,8 @@
           <itemPath>../src/web_pages/protect/index.htm</itemPath>
           <itemPath>../src/web_pages/protect/reboot.cgi</itemPath>
           <itemPath>../src/web_pages/protect/reboot.htm</itemPath>
-          <itemPath>../src/web_pages/protect/config.htm</itemPath>
-          <itemPath>../src/web_pages/protect/index.htm</itemPath>
-          <itemPath>../src/web_pages/protect/reboot.cgi</itemPath>
-          <itemPath>../src/web_pages/protect/reboot.htm</itemPath>
-          <itemPath>../src/web_pages/protect/config.htm</itemPath>
-          <itemPath>../src/web_pages/protect/index.htm</itemPath>
-          <itemPath>../src/web_pages/protect/reboot.cgi</itemPath>
-          <itemPath>../src/web_pages/protect/reboot.htm</itemPath>
-          <itemPath>../src/web_pages/protect/config.htm</itemPath>
-          <itemPath>../src/web_pages/protect/index.htm</itemPath>
-          <itemPath>../src/web_pages/protect/reboot.cgi</itemPath>
-          <itemPath>../src/web_pages/protect/reboot.htm</itemPath>
         </logicalFolder>
         <logicalFolder name="f4" displayName="snmp" projectFiles="true">
-          <itemPath>../src/web_pages/snmp/snmpconfig.htm</itemPath>
-          <itemPath>../src/web_pages/snmp/snmpconfig.htm</itemPath>
-          <itemPath>../src/web_pages/snmp/snmpconfig.htm</itemPath>
           <itemPath>../src/web_pages/snmp/snmpconfig.htm</itemPath>
           <itemPath>../src/web_pages/snmp/snmpconfig.htm</itemPath>
           <itemPath>../src/web_pages/snmp/snmpconfig.htm</itemPath>
@@ -823,7 +801,7 @@
       <itemPath>../src/custom_http_net_app.c</itemPath>
       <itemPath>../src/mpfs_net_img.c</itemPath>
       <itemPath>../src/app.c</itemPath>
-      <itemPath>../src/gfx.c</itemPath>
+      <itemPath>../src/mmi.c</itemPath>
       <itemPath>../src/main.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"

@@ -84,11 +84,9 @@
 #include "FreeRTOS.h"
 #include "task.h"
 #include "app.h"
-#include "gfx.h"
+#include "mmi.h"
 
-#include "../../gfx_mono/gfx_ssd1306.h"
-#include "../../gfx_mono/gfx_mono_ug_2832hsweg04.h"
-#include "../../gfx_mono/gfx_mono_text.h"
+
 
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
