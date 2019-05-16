@@ -116,14 +116,14 @@
 #define SWITCH_InputEnable()       (PIOA_REGS->PIO_ODR = (1<<11))
 #define SWITCH_PIN                  PIO_PIN_PA11
 
-/*** Macros for LED2 pin ***/
-#define LED2_Set()               (PIOA_REGS->PIO_SODR = (1<<5))
-#define LED2_Clear()             (PIOA_REGS->PIO_CODR = (1<<5))
-#define LED2_Toggle()            (PIOA_REGS->PIO_ODSR ^= (1<<5))
-#define LED2_Get()               ((PIOA_REGS->PIO_PDSR >> 5) & 0x1)
-#define LED2_OutputEnable()      (PIOA_REGS->PIO_OER = (1<<5))
-#define LED2_InputEnable()       (PIOA_REGS->PIO_ODR = (1<<5))
-#define LED2_PIN                  PIO_PIN_PA5
+/*** Macros for USER_LED0 pin ***/
+#define USER_LED0_Set()               (PIOA_REGS->PIO_SODR = (1<<5))
+#define USER_LED0_Clear()             (PIOA_REGS->PIO_CODR = (1<<5))
+#define USER_LED0_Toggle()            (PIOA_REGS->PIO_ODSR ^= (1<<5))
+#define USER_LED0_Get()               ((PIOA_REGS->PIO_PDSR >> 5) & 0x1)
+#define USER_LED0_OutputEnable()      (PIOA_REGS->PIO_OER = (1<<5))
+#define USER_LED0_InputEnable()       (PIOA_REGS->PIO_ODR = (1<<5))
+#define USER_LED0_PIN                  PIO_PIN_PA5
 
 /*** Macros for LED1 pin ***/
 #define LED1_Set()               (PIOC_REGS->PIO_SODR = (1<<8))

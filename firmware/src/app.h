@@ -75,10 +75,10 @@
 #define APP_SWITCH_3StateGet()      SWITCH2_Get()
 #endif
 
-#define APP_LED_1StateSet()         LED1_Set()
-#define APP_LED_1StateGet()         LED1_Get()
-#define APP_LED_1StateClear()       LED1_Clear()
-#define APP_LED_1StateToggle()      LED1_Toggle()
+#define APP_LED_1StateSet()         USER_LED0_Set()
+#define APP_LED_1StateGet()         USER_LED0_Get()
+#define APP_LED_1StateClear()       USER_LED0_Clear()
+#define APP_LED_1StateToggle()      USER_LED0_Toggle()
 
 #if defined(__PIC32MZ__)
 #define APP_LED_2StateSet()         LED2_Set()
