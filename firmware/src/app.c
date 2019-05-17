@@ -134,6 +134,7 @@ void APP_Tasks ( void )
     int                 i;
     const char          *netName, *netBiosName;
     static uint32_t     startTick = 0;   
+    static uint32_t     blink = 2;
 
 
     SYS_CMD_READY_TO_READ();
@@ -203,7 +204,7 @@ void APP_Tasks ( void )
             break;
 
         case APP_TCPIP_TRANSACT:
-            if(SYS_TMR_TickCountGet() - startTick >= SYS_TMR_TickCounterFrequencyGet()/2ul)
+            if(SYS_TMR_TickCountGet() - startTick >= SYS_TMR_TickCounterFrequencyGet()>>blink)
             {
                 startTick = SYS_TMR_TickCountGet();
                 LEDstate ^= APP_LED_STATE_ON;
@@ -231,6 +232,7 @@ void APP_Tasks ( void )
                     SYS_CONSOLE_PRINT("%s IP Address: %d.%d.%d.%d \r\n",
                             TCPIP_STACK_NetNameGet(netH),
                             ipAddr.v[0], ipAddr.v[1], ipAddr.v[2], ipAddr.v[3]);
+                    if(ipAddr.v[0])blink=1;
                 }
             }
 
