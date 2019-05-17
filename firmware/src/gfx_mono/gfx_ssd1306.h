@@ -192,11 +192,11 @@ static inline uint8_t ssd1306_get_status(void)
  */
 static inline void ssd1306_hard_reset(void)
 {   
-    vTaskDelay( pdMS_TO_TICKS( 200 ) ); // At least 10us	
-    DISPLAY_RESET_Clear();
-	vTaskDelay( pdMS_TO_TICKS( 200 ) ); // At least 10us	
-    DISPLAY_RESET_Set();
-	vTaskDelay( pdMS_TO_TICKS( 200 ) ); // At least 10us	
+    GFX_DELAY_FUNCTION( 20 ); // At least 10us	
+    GFX_DISPLAY_RESET_CLEAR();
+	GFX_DELAY_FUNCTION( 20 ); // At least 10us	
+    GFX_DISPLAY_RESET_SET();
+	GFX_DELAY_FUNCTION( 20 ); // At least 10us	
 }
 //@}
 

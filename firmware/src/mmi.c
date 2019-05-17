@@ -114,7 +114,7 @@ void MMI_Initialize(void) {
 
 void MMI_Tasks(void) {
     uint32_t xx1 = 15, yy1 = 15;
-    static unsigned int CurrentIndex = 0;    
+    static unsigned int CurrentIndex = 0;
     char Oled_Text[20];
 
     /* Check the application's current state. */
@@ -125,7 +125,7 @@ void MMI_Tasks(void) {
             bool appInitialized = true;
 
             gfx_mono_ssd1306_init();
-
+            
             if (appInitialized) {
 
                 mmiData.state = MMI_STATE_SERVICE_TASKS;
@@ -235,6 +235,9 @@ void MMI_Tasks(void) {
             }
         }
 
+            break;
+
+        case MMI_STATE_IDLE:
             break;
 
             /* The default state should never be executed. */

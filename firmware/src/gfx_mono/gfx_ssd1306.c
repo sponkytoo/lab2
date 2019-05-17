@@ -101,7 +101,7 @@ void ssd1306_init(void) {
     ssd1306_hard_reset();
 
     // Set the reset pin to the default state	
-    DISPLAY_RESET_Set();
+    GFX_DISPLAY_RESET_SET();
 
     // 1/32 Duty (0x0F~0x3F)
     ssd1306_write_command(SSD1306_CMD_SET_MULTIPLEX_RATIO);
@@ -162,11 +162,11 @@ void ssd1306_init(void) {
  * \param command the command to write
  */
 void ssd1306_write_command(uint8_t command) {
-    DISPLAY_SS_N_Clear();
-    DATA_CMD_SEL_Clear();
-    SPI0_Write(&command, 1);
-    while(SPI0_IsBusy());
-    DISPLAY_SS_N_Set();
+    GFX_DISPLAY_SS_N_CLEAR();
+    GFX_DATA_CMD_SEL_CLEAR();
+    GFX_SPI_WRITE_FUNCTION(&command, 1);
+    while(GFX_SPI_IS_BUSY());
+    GFX_DISPLAY_SS_N_SET();
 }
 
 /**
@@ -178,9 +178,9 @@ void ssd1306_write_command(uint8_t command) {
  * \param data the data to write
  */
 void ssd1306_write_data(uint8_t data) {
-    DISPLAY_SS_N_Clear();
-    DATA_CMD_SEL_Set();
-    SPI0_Write(&data, 1);
-    while(SPI0_IsBusy());
-    DISPLAY_SS_N_Set();
+    GFX_DISPLAY_SS_N_CLEAR();
+    GFX_DATA_CMD_SEL_SET();
+    GFX_SPI_WRITE_FUNCTION(&data, 1);
+    while(GFX_SPI_IS_BUSY());
+    GFX_DISPLAY_SS_N_SET();
 }

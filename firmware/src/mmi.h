@@ -34,6 +34,7 @@
 #include "configuration.h"
 #include "FreeRTOS.h"
 #include "task.h"
+#include "config/sam_e70_xult_freertos/definitions.h"
 
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
@@ -66,6 +67,7 @@ typedef enum
     MMI_STATE_INIT=0,
     MMI_STATE_SERVICE_TASKS,
     MMI_APP_TASK,
+    MMI_STATE_IDLE,
     /* TODO: Define states used by the application state machine. */
 
 } MMI_STATES;
