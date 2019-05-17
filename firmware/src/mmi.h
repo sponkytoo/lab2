@@ -65,6 +65,7 @@ typedef enum
     /* Application's state machine's initial state. */
     MMI_STATE_INIT=0,
     MMI_STATE_SERVICE_TASKS,
+    MMI_APP_TASK,
     /* TODO: Define states used by the application state machine. */
 
 } MMI_STATES;

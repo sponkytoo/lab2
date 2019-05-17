@@ -144,8 +144,7 @@ Function Prototypes and Memory Globalizers
         static TCPIP_HTTP_NET_IO_RESULT HTTPPostDDNSConfig(TCPIP_HTTP_NET_CONN_HANDLE connHandle);
     #endif
 #endif
-
-extern const char *const ddnsServiceHosts[];
+ extern const char *const ddnsServiceHosts[];
 // RAM allocated for DDNS parameters
 #if defined(TCPIP_STACK_USE_DYNAMICDNS_CLIENT)
     static uint8_t DDNSData[100];
@@ -161,7 +160,7 @@ static bool lastSuccess = false;
 // Stick status message variable.  See lastSuccess for details.
 static bool lastFailure = false;
 unsigned int Update_Item;
-volatile uint8_t VM_ITEM[7]={'9','9','9','9','9','9','9'};
+uint8_t VM_Count[7]={'9','9','9','9','9','9','9'};
 /****************************************************************************
   Section:
     Customized HTTP NET Functions
@@ -247,7 +246,7 @@ bool TCPIP_HTTP_NET_SSINotification(TCPIP_HTTP_NET_CONN_HANDLE connHandle, TCPIP
  ****************************************************************************/
 TCPIP_HTTP_NET_IO_RESULT TCPIP_HTTP_NET_ConnectionGetExecute(TCPIP_HTTP_NET_CONN_HANDLE connHandle, const TCPIP_HTTP_NET_USER_CALLBACK *pCBack)
 {
-    const uint8_t *ptr;
+    const uint8_t *ptr;   
     uint8_t *httpDataBuff;
     uint8_t filename[20];
 
@@ -289,7 +288,7 @@ if(!memcmp(filename, "VM.htm", 6))
             }
             
        ptr = TCPIP_HTTP_NET_ArgGet(httpDataBuff, (const uint8_t *)"COUNT");
-            VM_ITEM[Update_Item]=*ptr;
+            VM_Count[Update_Item]=*ptr;
 }
     // If its the forms.htm page
     if(!memcmp(filename, "forms.htm", 9))
@@ -1597,40 +1596,38 @@ TCPIP_HTTP_DYN_PRINT_RES TCPIP_HTTP_Print_VMITEM(TCPIP_HTTP_NET_CONN_HANDLE conn
         switch(nVMITEM)
         {
             case 0:
-                VM_ITEM[0]=VM_ITEM[0]-1;
-                nVMITEM=VM_ITEM[0];// APP_LED_1StateGet();
+                nVMITEM=VM_Count[0];// APP_LED_1StateGet();
                 break;
 
             case 1:
-                VM_ITEM[1]=VM_ITEM[1]-1;
-                 nVMITEM=VM_ITEM[1];//APP_LED_2StateGet();
+                nVMITEM=VM_Count[1];// APP_LED_1StateGet();
                 break;
 
             case 2:
-                 VM_ITEM[2]=VM_ITEM[2]-1;
-                 nVMITEM=VM_ITEM[2];//APP_LED_3StateGet();
+                   
+                nVMITEM=VM_Count[2];// APP_LED_1StateGet();
                 break;
             case 3:
-                VM_ITEM[3]=VM_ITEM[3]-1;
-                 nVMITEM=VM_ITEM[3];//APP_LED_3StateGet();
+                  
+                nVMITEM=VM_Count[3];// APP_LED_1StateGet();
                 break;
                 
             case 4:
-                nVMITEM=VM_ITEM[4]-1;//APP_LED_3StateGet();
-                nVMITEM=VM_ITEM[4];
+                
+                nVMITEM=VM_Count[4];// APP_LED_1StateGet();
                 break;
                 
             case 5:
-                nVMITEM=VM_ITEM[5]-1;//APP_LED_3StateGet();
-                nVMITEM=VM_ITEM[5];
+                  
+                nVMITEM=VM_Count[5];// APP_LED_1StateGet();
                 break;
             case 6:
-                 nVMITEM=VM_ITEM[6]-1;//APP_LED_3StateGet();
-                 nVMITEM=VM_ITEM[6];
+                 
+                nVMITEM=VM_Count[6];// APP_LED_1StateGet();
                 break;
                 
             default:
-                nVMITEM=0;
+                break;
         }
            HTTP_APP_DYNVAR_BUFFER *pDynBuffer = HTTP_APP_GetDynamicBuffer();
        if(pDynBuffer == 0)
