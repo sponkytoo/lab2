@@ -80,10 +80,10 @@
 #define configMAX_CO_ROUTINE_PRIORITIES         2
 
 /* Software timer related definitions. */
-#define configUSE_TIMERS                        0
-#define configTIMER_TASK_PRIORITY               0
-#define configTIMER_QUEUE_LENGTH                0
-#define configTIMER_TASK_STACK_DEPTH            0
+#define configUSE_TIMERS                        1
+#define configTIMER_TASK_PRIORITY               3
+#define configTIMER_QUEUE_LENGTH                10
+#define configTIMER_TASK_STACK_DEPTH            256
 #define configUSE_DAEMON_TASK_STARTUP_HOOK      0
 
 /* Misc */

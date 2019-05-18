@@ -115,6 +115,8 @@ void APP_Initialize ( void )
     
     /* Place the application state machine in its initial state. */
     appData.state = APP_MOUNT_DISK;
+    
+    appData.new_ip = false;
 }
 
 /******************************************************************************
@@ -232,7 +234,10 @@ void APP_Tasks ( void )
                     SYS_CONSOLE_PRINT("%s IP Address: %d.%d.%d.%d \r\n",
                             TCPIP_STACK_NetNameGet(netH),
                             ipAddr.v[0], ipAddr.v[1], ipAddr.v[2], ipAddr.v[3]);
-                    if(ipAddr.v[0])blink=1;
+                    if(ipAddr.v[0])blink=0;
+                    
+                    sprintf(appData.ip_address,"        %d.%d.%d.%d           ",ipAddr.v[0], ipAddr.v[1], ipAddr.v[2], ipAddr.v[3]);
+                    appData.new_ip = true;
                 }
             }
 

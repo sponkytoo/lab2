@@ -29,6 +29,9 @@
 #include <string.h>
 #include <stdio.h>
 #include "mmi.h"
+#include "app.h"
+#include "third_party/rtos/FreeRTOS/Source/Include/FreeRTOS.h"
+#include "third_party/rtos/FreeRTOS/Source/Include/timers.h"
 #include "../gfx_mono/gfx_definitions.h"
 
 // *****************************************************************************
@@ -37,6 +40,7 @@
 // *****************************************************************************
 // *****************************************************************************
 extern struct font sysfont;
+extern APP_DATA appData;
 
 // *****************************************************************************
 /* Application Data
@@ -58,6 +62,9 @@ MMI_DATA mmiData;
 char VM_Items[][20] = {"1.Coca-Cola", "2.Diet-Coke", "3.Pepsi", "4.Dr Pepper", "5.Sprite", "6.Fanta", "7.Dasani"};
 extern uint8_t VM_Count[7];
 uint8_t Previous_Value[7] = {'9', '9', '9', '9', '9', '9', '9'};
+
+#define NUM_TIMERS 1
+TimerHandle_t xTimers[ NUM_TIMERS ];
 
 // *****************************************************************************
 // *****************************************************************************
@@ -84,6 +91,11 @@ uint8_t Previous_Value[7] = {'9', '9', '9', '9', '9', '9', '9'};
 // Section: Application Initialization and State Machine Functions
 // *****************************************************************************
 // *****************************************************************************
+bool DisplayIP = false;
+
+void vTimerCallback(TimerHandle_t xTimer) {
+    DisplayIP = true;
+}
 
 /*******************************************************************************
   Function:
@@ -102,6 +114,20 @@ void MMI_Initialize(void) {
     /* TODO: Initialize your application's state machine and other
      * parameters.
      */
+
+    xTimers[ 0 ] = xTimerCreate(/* Just a text name, not used by the RTOS kernel. */
+            "Timer",
+            /* The timer period in ticks, must be greater than 0. */
+            300,
+            /* The timers will auto-reload themselves when they
+            expire. */
+            pdTRUE,
+            /* The ID is used to store a count of the number of
+            times the timer has expired, which is initialized to 0. */
+            (void *) 0,
+            /* Each timer calls the same callback when it expires. */
+            vTimerCallback);
+
 }
 
 /******************************************************************************
@@ -125,7 +151,7 @@ void MMI_Tasks(void) {
             bool appInitialized = true;
 
             gfx_mono_ssd1306_init();
-            
+
             if (appInitialized) {
 
                 mmiData.state = MMI_STATE_SERVICE_TASKS;
@@ -182,6 +208,7 @@ void MMI_Tasks(void) {
             gfx_mono_generic_draw_rect(112, 0, 16, 20, GFX_PIXEL_SET);
             if (serviceInit) {
                 mmiData.state = MMI_APP_TASK;
+                xTimerStart(xTimers[ 0 ], 0);
             }
             break;
         }
@@ -234,6 +261,15 @@ void MMI_Tasks(void) {
                 LED_3_Toggle();
             }
         }
+
+            if (DisplayIP) {
+                static char pc[16] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+                static uint8_t count = 0;
+                memcpy(pc, &appData.ip_address[count], 7);
+                if (++count == 22)count = 0;
+                DisplayIP = false;
+                gfx_mono_draw_string(pc, 0, 16, &sysfont);
+            }
 
             break;
 

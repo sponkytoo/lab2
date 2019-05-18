@@ -176,6 +176,9 @@ typedef struct
     APP_STATES state;
 
     TCP_SOCKET              socket;
+    
+    char ip_address[64];
+    bool new_ip;
 
 } APP_DATA;
 
