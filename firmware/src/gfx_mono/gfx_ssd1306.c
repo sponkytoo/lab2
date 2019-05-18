@@ -47,45 +47,6 @@
 #include "gfx_ssd1306.h"
 #include "gfx_mono_ug_2832hsweg04.h"
 
-//TODO struct spi_module ssd1306_master;
-//TODO struct spi_slave_inst ssd1306_slave;
-
-/**
- * \internal
- * \brief Initialize the hardware interface
- *
- * Depending on what interface used for interfacing the OLED controller this
- * function will initialize the necessary hardware.
- */
-//static void ssd1306_interface_init(void)
-//{
-//	struct spi_config config;
-//	struct spi_slave_inst_config slave_config;
-//
-//	spi_slave_inst_get_config_defaults(&slave_config);
-//	slave_config.ss_pin = SSD1306_CS_PIN;
-//	spi_attach_slave(&ssd1306_slave, &slave_config);
-//
-//	spi_get_config_defaults(&config);
-//
-//	config.mux_setting = SSD1306_SPI_PINMUX_SETTING;
-//	config.pinmux_pad0 = SSD1306_SPI_PINMUX_PAD0;
-//	config.pinmux_pad1 = SSD1306_SPI_PINMUX_PAD1;
-//	config.pinmux_pad2 = SSD1306_SPI_PINMUX_PAD2;
-//	config.pinmux_pad3 = SSD1306_SPI_PINMUX_PAD3;
-//	config.mode_specific.master.baudrate = SSD1306_CLOCK_SPEED;
-//
-//	spi_init(&ssd1306_master, SSD1306_SPI, &config);
-//	spi_enable(&ssd1306_master);
-//
-//	struct port_config pin;
-//	port_get_config_defaults(&pin);
-//	pin.direction = PORT_PIN_DIR_OUTPUT;
-//
-//	port_pin_set_config(SSD1306_DC_PIN, &pin);
-//	port_pin_set_config(SSD1306_RES_PIN, &pin);
-//}
-
 /**
  * \brief Initialize the OLED controller
  *
@@ -148,9 +109,9 @@ void ssd1306_init(void) {
     ssd1306_write_command(0xF1);
 
     ssd1306_display_on();
-    
+
     gfx_mono_draw_filled_rect(0, 0, 128, 32, GFX_PIXEL_SET);
-    gfx_mono_draw_filled_rect(0, 0, 128, 32, GFX_PIXEL_CLR);    
+    gfx_mono_draw_filled_rect(0, 0, 128, 32, GFX_PIXEL_CLR);
 }
 
 /**
@@ -165,7 +126,7 @@ void ssd1306_write_command(uint8_t command) {
     GFX_DISPLAY_SS_N_CLEAR();
     GFX_DATA_CMD_SEL_CLEAR();
     GFX_SPI_WRITE_FUNCTION(&command, 1);
-    while(GFX_SPI_IS_BUSY());
+    while (GFX_SPI_IS_BUSY());
     GFX_DISPLAY_SS_N_SET();
 }
 
@@ -181,6 +142,6 @@ void ssd1306_write_data(uint8_t data) {
     GFX_DISPLAY_SS_N_CLEAR();
     GFX_DATA_CMD_SEL_SET();
     GFX_SPI_WRITE_FUNCTION(&data, 1);
-    while(GFX_SPI_IS_BUSY());
+    while (GFX_SPI_IS_BUSY());
     GFX_DISPLAY_SS_N_SET();
 }

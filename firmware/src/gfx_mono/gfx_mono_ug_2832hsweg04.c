@@ -50,7 +50,7 @@
 #define CONFIG_SSD1306_FRAMEBUFFER
 
 #ifdef CONFIG_SSD1306_FRAMEBUFFER
-uint8_t framebuffer[GFX_MONO_LCD_FRAMEBUFFER_SIZE*4];
+uint8_t framebuffer[GFX_MONO_LCD_FRAMEBUFFER_SIZE];
 #endif
 
 /**
@@ -69,7 +69,7 @@ void gfx_mono_ssd1306_init(void)
     for(ix=0;ix<GFX_MONO_LCD_FRAMEBUFFER_SIZE;ix++){
         framebuffer[ix]=0x00;
     }
-    
+                                    
 	gfx_mono_set_framebuffer(framebuffer);
 #endif
 

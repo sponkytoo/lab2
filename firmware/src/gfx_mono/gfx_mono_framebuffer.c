@@ -88,7 +88,13 @@ void gfx_mono_framebuffer_put_page(gfx_mono_color_t *data, gfx_coord_t page,
 			((page * GFX_MONO_LCD_WIDTH) + column);
 
 	do {
-		*framebuffer_pt++ = *data_pt++;
+        uint8_t *fBufferBegin = fbpointer;
+        uint8_t *fBufferEnd   = fbpointer + GFX_MONO_LCD_FRAMEBUFFER_SIZE;
+        
+        if(  (framebuffer_pt >= fBufferBegin) &&  (framebuffer_pt <= fBufferEnd)  ) {
+            *framebuffer_pt++ = *data_pt++;
+        }           
+		
 	} while (--width > 0);
 }
 
@@ -204,7 +210,12 @@ uint8_t gfx_mono_framebuffer_get_pixel(gfx_coord_t x, gfx_coord_t y)
 void gfx_mono_framebuffer_put_byte(gfx_coord_t page, gfx_coord_t column,
 		uint8_t data)
 {
-	*(fbpointer + (page * GFX_MONO_LCD_WIDTH) + column) = data;
+    uint8_t *fBufferBegin = fbpointer;
+    uint8_t *fBufferEnd   = fbpointer + GFX_MONO_LCD_FRAMEBUFFER_SIZE;
+    uint8_t *fbpointerTemp = (fbpointer + (page * GFX_MONO_LCD_WIDTH) + column);
+    if(  (fbpointerTemp >= fBufferBegin) &&  (fbpointerTemp <= fBufferEnd)  ) {
+        *(fbpointer + (page * GFX_MONO_LCD_WIDTH) + column) = data;
+    }    
 }
 
 /**
