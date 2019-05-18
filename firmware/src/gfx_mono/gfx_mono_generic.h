@@ -51,78 +51,79 @@
 extern "C" {
 #endif
 
-/**
- * \ingroup asfdoc_common2_gfx_mono
- * \defgroup asfdoc_common2_gfx_mono_generic_group Generic monochrome graphic primitives
- *
- * This is a service providing generic implementations of graphic primitives
- * - Horizontal line
- * - Vertical line
- * - Line
- * - Circle (filled/not filled)
- * - Rectangle (filled/not filled)
- *
- * it also provides functionality to draw a bitmap to the graphic memory.
- *
- * These functions are made available if the graphic hardware being used do
- * not implement the functionality in hardware. This is true in most cases.
- *
- * This service is included as a requirement for a
- * hardware specific component that uses these functions, and provides a
- * asfdoc_common2_draw_pixel function.
- *
- * @{
- */
+    /**
+     * \ingroup asfdoc_common2_gfx_mono
+     * \defgroup asfdoc_common2_gfx_mono_generic_group Generic monochrome graphic primitives
+     *
+     * This is a service providing generic implementations of graphic primitives
+     * - Horizontal line
+     * - Vertical line
+     * - Line
+     * - Circle (filled/not filled)
+     * - Rectangle (filled/not filled)
+     *
+     * it also provides functionality to draw a bitmap to the graphic memory.
+     *
+     * These functions are made available if the graphic hardware being used do
+     * not implement the functionality in hardware. This is true in most cases.
+     *
+     * This service is included as a requirement for a
+     * hardware specific component that uses these functions, and provides a
+     * asfdoc_common2_draw_pixel function.
+     *
+     * @{
+     */
 
-/**
- * \brief Storage structure for bitmap pixel data and metadata
- */
-struct gfx_mono_bitmap {
-	/** Width of bitmap */
-	gfx_coord_t width;
-	/** Height of bitmap */
-	gfx_coord_t height;
-	/** Bitmap type */
-	enum gfx_mono_bitmap_type type;
-	union {
-		/** Pointer to pixels for bitmap stored in RAM */
-		gfx_mono_color_t *pixmap;
-		/** Pointer to pixels for bitmap stored in progmem */
-		gfx_mono_color_t PROGMEM_T *progmem;
-	}
-	data;
-};
+    /**
+     * \brief Storage structure for bitmap pixel data and metadata
+     */
+    struct gfx_mono_bitmap {
+        /** Width of bitmap */
+        gfx_coord_t width;
+        /** Height of bitmap */
+        gfx_coord_t height;
+        /** Bitmap type */
+        enum gfx_mono_bitmap_type type;
 
-void gfx_mono_generic_draw_horizontal_line(gfx_coord_t x, gfx_coord_t y,
-		gfx_coord_t length, enum gfx_mono_color color);
+        union {
+            /** Pointer to pixels for bitmap stored in RAM */
+            gfx_mono_color_t *pixmap;
+            /** Pointer to pixels for bitmap stored in progmem */
+            gfx_mono_color_t PROGMEM_T *progmem;
+        }
+        data;
+    };
 
-void gfx_mono_generic_draw_vertical_line(gfx_coord_t x, gfx_coord_t y,
-		gfx_coord_t length, enum gfx_mono_color color);
+    void gfx_mono_generic_draw_horizontal_line(gfx_coord_t x, gfx_coord_t y,
+            gfx_coord_t length, enum gfx_mono_color color);
 
-void gfx_mono_generic_draw_line(gfx_coord_t x1, gfx_coord_t y1,
-		gfx_coord_t x2, gfx_coord_t y2,
-		enum gfx_mono_color color);
+    void gfx_mono_generic_draw_vertical_line(gfx_coord_t x, gfx_coord_t y,
+            gfx_coord_t length, enum gfx_mono_color color);
 
-void gfx_mono_generic_draw_rect(gfx_coord_t x, gfx_coord_t y,
-		gfx_coord_t width, gfx_coord_t height,
-		enum gfx_mono_color color);
+    void gfx_mono_generic_draw_line(gfx_coord_t x1, gfx_coord_t y1,
+            gfx_coord_t x2, gfx_coord_t y2,
+            enum gfx_mono_color color);
 
-void gfx_mono_generic_draw_filled_rect(gfx_coord_t x, gfx_coord_t y,
-		gfx_coord_t width, gfx_coord_t height,
-		enum gfx_mono_color color);
+    void gfx_mono_generic_draw_rect(gfx_coord_t x, gfx_coord_t y,
+            gfx_coord_t width, gfx_coord_t height,
+            enum gfx_mono_color color);
 
-void gfx_mono_generic_draw_circle(gfx_coord_t x, gfx_coord_t y,
-		gfx_coord_t radius, enum gfx_mono_color color,
-		uint8_t octant_mask);
+    void gfx_mono_generic_draw_filled_rect(gfx_coord_t x, gfx_coord_t y,
+            gfx_coord_t width, gfx_coord_t height,
+            enum gfx_mono_color color);
 
-void gfx_mono_generic_draw_filled_circle(gfx_coord_t x, gfx_coord_t y,
-		gfx_coord_t radius, enum gfx_mono_color color,
-		uint8_t quadrant_mask);
+    void gfx_mono_generic_draw_circle(gfx_coord_t x, gfx_coord_t y,
+            gfx_coord_t radius, enum gfx_mono_color color,
+            uint8_t octant_mask);
 
-void gfx_mono_generic_put_bitmap(struct gfx_mono_bitmap *bitmap, gfx_coord_t x,
-		gfx_coord_t y);
+    void gfx_mono_generic_draw_filled_circle(gfx_coord_t x, gfx_coord_t y,
+            gfx_coord_t radius, enum gfx_mono_color color,
+            uint8_t quadrant_mask);
 
-/** @} */
+    void gfx_mono_generic_put_bitmap(struct gfx_mono_bitmap *bitmap, gfx_coord_t x,
+            gfx_coord_t y);
+
+    /** @} */
 
 #ifdef __cplusplus
 }

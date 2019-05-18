@@ -1,25 +1,25 @@
 /*******************************************************************************
-* Copyright (C) 2019 Microchip Technology Inc. and its subsidiaries.
-*
-* Subject to your compliance with these terms, you may use Microchip software
-* and any derivatives exclusively with Microchip products. It is your
-* responsibility to comply with third party license terms applicable to your
-* use of third party software (including open source software) that may
-* accompany Microchip software.
-*
-* THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER
-* EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED
-* WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A
-* PARTICULAR PURPOSE.
-*
-* IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE,
-* INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND
-* WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS
-* BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE
-* FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
-* ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
-* THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
-*******************************************************************************/
+ * Copyright (C) 2019 Microchip Technology Inc. and its subsidiaries.
+ *
+ * Subject to your compliance with these terms, you may use Microchip software
+ * and any derivatives exclusively with Microchip products. It is your
+ * responsibility to comply with third party license terms applicable to your
+ * use of third party software (including open source software) that may
+ * accompany Microchip software.
+ *
+ * THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER
+ * EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED
+ * WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A
+ * PARTICULAR PURPOSE.
+ *
+ * IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE,
+ * INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND
+ * WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS
+ * BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE
+ * FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
+ * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
+ * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
+ *******************************************************************************/
 
 /*******************************************************************************
   MPLAB Harmony Application Header File
@@ -39,7 +39,7 @@
     "APP_Initialize" and "APP_Tasks" prototypes) and some of them are only used
     internally by the application (such as the "APP_STATES" definition).  Both
     are defined here for convenience.
-*******************************************************************************/
+ *******************************************************************************/
 
 #ifndef _APP_H
 #define _APP_H
@@ -93,6 +93,7 @@
 #endif
 
 // *****************************************************************************
+
 /* Application States
 
   Summary:
@@ -101,10 +102,9 @@
   Description:
     This enumeration defines the valid application states.  These states
     determine the behavior of the application at various times.
-*/
+ */
 
-typedef enum
-{
+typedef enum {
     /* The application mounts the disk. */
     APP_MOUNT_DISK = 0,
 
@@ -135,6 +135,7 @@ typedef enum
 } APP_STATES;
 
 // *****************************************************************************
+
 /* LED State
 
   Summary:
@@ -145,17 +146,17 @@ typedef enum
 
   Remarks:
     None.
-*/
-typedef enum
-{
+ */
+typedef enum {
     /* LED State is on */
     APP_LED_STATE_OFF = 0,
-   /* LED State is off */
+    /* LED State is off */
     APP_LED_STATE_ON = 1,
 } APP_LED_STATE;
 
 
 // *****************************************************************************
+
 /* Application Data
 
   Summary:
@@ -168,15 +169,14 @@ typedef enum
     Application strings and buffers are be defined outside this structure.
  */
 
-typedef struct
-{
+typedef struct {
     /* SYS_FS file handle */
     SYS_FS_HANDLE fileHandle;
     /* The application's current state */
     APP_STATES state;
 
-    TCP_SOCKET              socket;
-    
+    TCP_SOCKET socket;
+
     char ip_address[64];
     bool new_ip;
 
@@ -189,9 +189,9 @@ typedef struct
 // *****************************************************************************
 // *****************************************************************************
 /* These routines are called by drivers when certain events occur.
-*/
+ */
 
-	
+
 // *****************************************************************************
 // *****************************************************************************
 // Section: Application Initialization and State Machine Functions
@@ -227,9 +227,9 @@ typedef struct
 
   Remarks:
     This routine must be called from the SYS_Initialize function.
-*/
+ */
 
-void APP_Initialize ( void );
+void APP_Initialize(void);
 
 
 /*******************************************************************************
@@ -262,7 +262,7 @@ void APP_Initialize ( void );
     This routine must be called from SYS_Tasks() routine.
  */
 
-void APP_Tasks ( void );
+void APP_Tasks(void);
 
 // *****************************************************************************
 // *****************************************************************************

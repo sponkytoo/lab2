@@ -40,7 +40,7 @@
 #define GFX_MONO_UG_2832HSWEG04
 #include "../../gfx_mono/gfx_mono_text.h"
 
-        
+
 #endif /* _EXAMPLE_FILE_NAME_H */
 
 /* *****************************************************************************

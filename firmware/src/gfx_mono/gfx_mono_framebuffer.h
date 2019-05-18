@@ -52,42 +52,42 @@
 extern "C" {
 #endif
 
-/**
- * \ingroup asfdoc_common2_gfx_mono
- * \defgroup asfdoc_common2_gfx_mono_framebuffer_group Framebuffer
- *
- * This module provides read/write from and to a framebuffer in RAM. This is
- * needed when using a controller that does not provide a way to read back data
- * from the LCD controller memory. In this case we need to buffer the data in
- * a local framebuffer to allow manipulation on pixel level. It is generally
- * not recommended to access the framebuffer directly; this is handled by the
- * graphic driver when needed.
- *
- * @{
- */
+    /**
+     * \ingroup asfdoc_common2_gfx_mono
+     * \defgroup asfdoc_common2_gfx_mono_framebuffer_group Framebuffer
+     *
+     * This module provides read/write from and to a framebuffer in RAM. This is
+     * needed when using a controller that does not provide a way to read back data
+     * from the LCD controller memory. In this case we need to buffer the data in
+     * a local framebuffer to allow manipulation on pixel level. It is generally
+     * not recommended to access the framebuffer directly; this is handled by the
+     * graphic driver when needed.
+     *
+     * @{
+     */
 
-void gfx_mono_set_framebuffer(uint8_t *framebuffer);
+    void gfx_mono_set_framebuffer(uint8_t *framebuffer);
 
-void gfx_mono_framebuffer_put_page(gfx_mono_color_t *data, gfx_coord_t page,
-		gfx_coord_t page_offset, gfx_coord_t width);
+    void gfx_mono_framebuffer_put_page(gfx_mono_color_t *data, gfx_coord_t page,
+            gfx_coord_t page_offset, gfx_coord_t width);
 
-void gfx_mono_framebuffer_get_page(gfx_mono_color_t *data, gfx_coord_t page,
-		gfx_coord_t page_offset, gfx_coord_t width);
+    void gfx_mono_framebuffer_get_page(gfx_mono_color_t *data, gfx_coord_t page,
+            gfx_coord_t page_offset, gfx_coord_t width);
 
-void gfx_mono_framebuffer_draw_pixel(gfx_coord_t x, gfx_coord_t y,
-		gfx_mono_color_t color);
+    void gfx_mono_framebuffer_draw_pixel(gfx_coord_t x, gfx_coord_t y,
+            gfx_mono_color_t color);
 
-uint8_t gfx_mono_framebuffer_get_pixel(gfx_coord_t x, gfx_coord_t y);
+    uint8_t gfx_mono_framebuffer_get_pixel(gfx_coord_t x, gfx_coord_t y);
 
-void gfx_mono_framebuffer_put_byte(gfx_coord_t page, gfx_coord_t column,
-		uint8_t data);
+    void gfx_mono_framebuffer_put_byte(gfx_coord_t page, gfx_coord_t column,
+            uint8_t data);
 
-uint8_t gfx_mono_framebuffer_get_byte(gfx_coord_t page, gfx_coord_t column);
+    uint8_t gfx_mono_framebuffer_get_byte(gfx_coord_t page, gfx_coord_t column);
 
-void gfx_mono_framebuffer_mask_byte(gfx_coord_t page, gfx_coord_t column,
-		gfx_mono_color_t pixel_mask, gfx_mono_color_t color);
+    void gfx_mono_framebuffer_mask_byte(gfx_coord_t page, gfx_coord_t column,
+            gfx_mono_color_t pixel_mask, gfx_mono_color_t color);
 
-/** @} */
+    /** @} */
 
 #ifdef __cplusplus
 }

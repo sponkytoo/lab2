@@ -57,18 +57,18 @@
 
 #if defined(USE_FONT_BPMONO_10x16)
 /** Width of each glyph, including spacer column. */
-#  define SYSFONT_WIDTH           10
+#define SYSFONT_WIDTH           10
 /** Height of each glyph, excluding spacer line. */
-#  define SYSFONT_HEIGHT          16
+#define SYSFONT_HEIGHT          16
 /** Line height. */
-#  define SYSFONT_LINESPACING     8
+#define SYSFONT_LINESPACING     8
 /** First character defined. */
-#  define SYSFONT_FIRSTCHAR       ((uint8_t)' ')
+#define SYSFONT_FIRSTCHAR       ((uint8_t)' ')
 /** Last character defined. */
-#  define SYSFONT_LASTCHAR        ((uint8_t)'}')
+#define SYSFONT_LASTCHAR        ((uint8_t)'}')
 
 /** Define variable containing the font */
-#  define SYSFONT_DEFINE_GLYPHS \
+#define SYSFONT_DEFINE_GLYPHS \
         /* Glyph data, row by row, MSB is leftmost pixel, one byte per row. */ \
 	static PROGMEM_DECLARE(uint8_t, sysfont_glyphs[]) = { \
 		/* "BPmono" font (http://www.backpacker.gr) at size 10x16 */ \
@@ -451,18 +451,18 @@
 	};
 #elif defined(USE_FONT_BPMONO_10x14)
 /** Width of each glyph, including spacer column. */
-#  define SYSFONT_WIDTH           10
+#define SYSFONT_WIDTH           10
 /** Height of each glyph, excluding spacer line. */
-#  define SYSFONT_HEIGHT          14
+#define SYSFONT_HEIGHT          14
 /** Line height. */
-#  define SYSFONT_LINESPACING     8
+#define SYSFONT_LINESPACING     8
 /** First character defined. */
-#  define SYSFONT_FIRSTCHAR       ((uint8_t)' ')
+#define SYSFONT_FIRSTCHAR       ((uint8_t)' ')
 /** Last character defined. */
-#  define SYSFONT_LASTCHAR        ((uint8_t)'}')
+#define SYSFONT_LASTCHAR        ((uint8_t)'}')
 
 /** Define variable containing the font */
-#  define SYSFONT_DEFINE_GLYPHS \
+#define SYSFONT_DEFINE_GLYPHS \
         /* Glyph data, row by row, MSB is leftmost pixel, one byte per row. */ \
 	static PROGMEM_DECLARE(uint8_t, sysfont_glyphs[]) = { \
 		/* "BPmono" font (http://www.backpacker.gr) at size 10x14 */ \
@@ -751,18 +751,18 @@
 	};
 #elif defined(USE_FONT_MONO_MMM_10x12)
 /** Width of each glyph, including spacer column. */
-#  define SYSFONT_WIDTH           10
+#define SYSFONT_WIDTH           10
 /** Height of each glyph, excluding spacer line. */
-#  define SYSFONT_HEIGHT          12
+#define SYSFONT_HEIGHT          12
 /** Line height. */
-#  define SYSFONT_LINESPACING     8
+#define SYSFONT_LINESPACING     8
 /** First character defined. */
-#  define SYSFONT_FIRSTCHAR       ((uint8_t)' ')
+#define SYSFONT_FIRSTCHAR       ((uint8_t)' ')
 /** Last character defined. */
-#  define SYSFONT_LASTCHAR        ((uint8_t)'}')
+#define SYSFONT_LASTCHAR        ((uint8_t)'}')
 
 /** Define variable containing the font */
-#  define SYSFONT_DEFINE_GLYPHS \
+#define SYSFONT_DEFINE_GLYPHS \
         /* Glyph data, row by row, MSB is leftmost pixel, one byte per row. */ \
 	static PROGMEM_DECLARE(uint8_t, sysfont_glyphs[]) = { \
 		/* "MonoMMM" font (http://www.dafont.com/monommm-5.font) size 10x12 */ \
@@ -1051,18 +1051,18 @@
 	};
 #elif defined(USE_FONT_BASIC_6x7)
 /** Width of each glyph, including spacer column. */
-#  define SYSFONT_WIDTH           6
+#define SYSFONT_WIDTH           6
 /** Height of each glyph, excluding spacer line. */
-#  define SYSFONT_HEIGHT          7
+#define SYSFONT_HEIGHT          7
 /** Line height. */
-#  define SYSFONT_LINESPACING     8
+#define SYSFONT_LINESPACING     8
 /** First character defined. */
-#  define SYSFONT_FIRSTCHAR       ((uint8_t)' ')
+#define SYSFONT_FIRSTCHAR       ((uint8_t)' ')
 /** Last character defined. */
-#  define SYSFONT_LASTCHAR        ((uint8_t)'}')
+#define SYSFONT_LASTCHAR        ((uint8_t)'}')
 
 /** Define variable containing the font */
-#  define SYSFONT_DEFINE_GLYPHS \
+#define SYSFONT_DEFINE_GLYPHS \
         /* Glyph data, row by row, MSB is leftmost pixel, one byte per row. */ \
 	static PROGMEM_DECLARE(uint8_t, sysfont_glyphs[]) = { \
 		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,          /* " " */ \
