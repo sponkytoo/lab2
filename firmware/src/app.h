@@ -105,9 +105,18 @@
  */
 
 typedef enum {
+    
+    APP_START_CASE = 0,
+            
     /* The application mounts the disk. */
-    APP_MOUNT_DISK = 0,
+    APP_MOUNT_DISK,
 
+    /* the MAC Address is read from the external EE */
+    APP_TCPIP_INIT_MAC,
+    
+    /* TCP Stack will initialized with the unique MAC from the EE */
+    APP_TCPIP_INIT_TCPIP_STACK,               
+            
     /* In this state, the application waits for the initialization of the TCP/IP stack
        to complete. */
     APP_TCPIP_WAIT_INIT,

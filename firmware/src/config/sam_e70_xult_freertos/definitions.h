@@ -56,6 +56,7 @@
 #include "bsp/bsp.h"
 #include "driver/memory/drv_memory_efc.h"
 #include "peripheral/spi/plib_spi0.h"
+#include "peripheral/twihs/plib_twihs0.h"
 #include "net_pres/pres/net_pres.h"
 #include "net_pres/pres/net_pres_encryptionproviderapi.h"
 #include "net_pres/pres/net_pres_transportapi.h"
