@@ -133,7 +133,15 @@ typedef enum {
 
     /* In this state, the application can do TCP/IP transactions. */
     APP_TCPIP_TRANSACT,
-
+            
+    APP_SETUP_TCP_CLIENT,
+            
+    APP_WAIT_FOR_TCP_CONNECTION,
+            
+    APP_CLOSE_TCP_CLIENT,
+           
+    APP_MANAGE_TCP_CLIENT,
+            
     /* In this state, the application performs module FW update over the air. */
     APP_FW_OTA_UPDATE,
 
@@ -188,7 +196,12 @@ typedef struct {
 
     char ip_address[64];
     bool new_ip;
-
+    const char *netName, *netBiosName;
+    
+    uint16_t port;
+    uint32_t timeoutTick;
+    
+    
 } APP_DATA;
 
 

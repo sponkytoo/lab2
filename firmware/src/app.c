@@ -58,6 +58,7 @@
 // *****************************************************************************
 #define APP_AT24MAC_DEVICE_MACADDR          (0x5f9A)
 #define MAC_ADDR_LENGTH (6)
+#define TCP_CLIENT_CONNECTION_TIMEOUT_PERIOD_ms 15000
 
 typedef enum {
     MAC_ADDR_READ_STATE_READ,
@@ -71,6 +72,11 @@ char macAddrString[18];
 extern TCPIP_NETWORK_CONFIG __attribute__((unused)) TCPIP_HOSTS_CONFIGURATION[];
 static void AT24_MacAddr_Read(void);
 SYS_MODULE_OBJ TCPIP_STACK_Init();
+
+uint32_t MessageCounter = 1;
+
+extern const char VM_Items[][20];
+extern uint8_t VM_Count[7];
 
 // *****************************************************************************
 /* Application Data
@@ -105,7 +111,6 @@ APP_LED_STATE LEDstate = APP_LED_STATE_OFF;
 // *****************************************************************************
 // *****************************************************************************
 
-
 /* TODO:  Add any necessary local functions.
  */
 
@@ -120,6 +125,14 @@ void AT24_MacAddr_Read_Callback(uintptr_t context) {
         if (transferState) {
             *transferState = MAC_ADDR_READ_STATE_ERROR;
         }
+    }
+}
+
+static bool NETWORKCOMS_IsTickPeriodElapsed(uint32_t tickValue_ms, uint32_t periodToCheck_ms) {
+    if ((SYS_TMR_TickCountGet() - tickValue_ms) >= periodToCheck_ms) {
+        return true;
+    } else {
+        return false;
     }
 }
 
@@ -141,8 +154,8 @@ static void AT24_MacAddr_Read(void) {
             //convert MAC address to string format
             TCPIP_Helper_MACAddressToString((const TCPIP_MAC_ADDR*) macAddr, macAddrString, 18);
             //update host configuration with new MAC address
-            (TCPIP_HOSTS_CONFIGURATION[0].macAddr) = (char*) macAddrString;            
-            SYS_CONSOLE_PRINT("MAC TCPIP_HOSTS_CONFIGURATION[0].macAddr: %s\n\r",TCPIP_HOSTS_CONFIGURATION[0].macAddr);
+            (TCPIP_HOSTS_CONFIGURATION[0].macAddr) = (char*) macAddrString;
+            SYS_CONSOLE_PRINT("MAC TCPIP_HOSTS_CONFIGURATION[0].macAddr: %s\n\r", TCPIP_HOSTS_CONFIGURATION[0].macAddr);
             appData.state = APP_TCPIP_INIT_TCPIP_STACK;
             break;
 
@@ -197,7 +210,8 @@ void APP_Tasks(void) {
     const char *netName, *netBiosName;
     static uint32_t startTick = 0;
     static uint32_t blink = 2;
-
+    static unsigned int count = 0;
+    static unsigned int bay_index = 0;
 
     SYS_CMD_READY_TO_READ();
 
@@ -207,7 +221,7 @@ void APP_Tasks(void) {
             SYS_CONSOLE_PRINT("web_net_server_nvm_mpfs_freertos_lab1 %s %s\r\n", __DATE__, __TIME__);
             appData.state = APP_MOUNT_DISK;
             break;
-            
+
         case APP_MOUNT_DISK:
             if (SYS_FS_Mount(SYS_FS_NVM_VOL, LOCAL_WEBSITE_PATH_FS, MPFS2, 0, NULL) == 0) {
                 SYS_CONSOLE_PRINT("SYS_Initialize: The %s File System is mounted\r\n", SYS_FS_MPFS_STRING);
@@ -225,7 +239,7 @@ void APP_Tasks(void) {
             SYS_ASSERT(sysObj.tcpip != SYS_MODULE_OBJ_INVALID, "TCPIP_STACK_Init Failed");
             appData.state = APP_TCPIP_WAIT_INIT;
             break;
-            
+
         case APP_TCPIP_WAIT_INIT:
             tcpipStat = TCPIP_STACK_Status(sysObj.tcpip);
             if (tcpipStat < 0) { // some error occurred
@@ -271,6 +285,7 @@ void APP_Tasks(void) {
                 HTTP_APP_Initialize();
 #endif // defined(TCPIP_STACK_USE_HTTP_NET_SERVER)
 
+                SYS_CONSOLE_PRINT("\r\n%s -sends message to the server when a Bay is empty\r\n\r\n", appData.netBiosName);
                 appData.state = APP_TCPIP_TRANSACT;
             }
 
@@ -284,6 +299,7 @@ void APP_Tasks(void) {
                     APP_LED_1StateSet();
                 } else if (LEDstate == 0) {
                     APP_LED_1StateClear();
+                    count++;
                 }
             }
 
@@ -306,7 +322,83 @@ void APP_Tasks(void) {
                 }
             }
 
+            if (count > 0) {
+                count = 0;
+                if (bay_index >= 7) {
+                    bay_index = 0;
+                }
+                if (VM_Count[bay_index] == '0') {
+                    SYS_CONSOLE_PRINT("%s-Sending VM Status\r\n", appData.netName);
+                    appData.state = APP_SETUP_TCP_CLIENT;
+                }
+                bay_index++;
+
+            }
             break;
+
+        case APP_SETUP_TCP_CLIENT:
+        {
+            IPV4_ADDR addr;
+
+            addr.v[0] = 192;
+            addr.v[1] = 168;
+            addr.v[2] = 0;
+            addr.v[3] = 108;
+            appData.port = 80;
+            appData.socket = TCPIP_TCP_ClientOpen(IP_ADDRESS_TYPE_IPV4,
+                    appData.port,
+                    (IP_MULTI_ADDRESS*) & addr);
+
+            if (appData.socket == INVALID_SOCKET) {
+                SYS_CONSOLE_MESSAGE("Could not start connection\r\n");
+                appData.state = APP_SETUP_TCP_CLIENT;
+            }
+            SYS_CONSOLE_MESSAGE("Starting connection\r\n");
+            appData.timeoutTick = SYS_TMR_TickCountGet();
+            appData.state = APP_WAIT_FOR_TCP_CONNECTION;
+            break;
+        }
+
+
+        case APP_WAIT_FOR_TCP_CONNECTION:
+            if (!TCPIP_TCP_IsConnected(appData.socket)) {
+                if (NETWORKCOMS_IsTickPeriodElapsed(appData.timeoutTick, TCP_CLIENT_CONNECTION_TIMEOUT_PERIOD_ms)) {
+                    SYS_CONSOLE_MESSAGE("Timeout: TCP Socket could not be established\r\n");
+                    appData.state = APP_CLOSE_TCP_CLIENT;
+                }
+                break;
+            }
+            if (TCPIP_TCP_PutIsReady(appData.socket) == 0) {
+                break;
+            }
+
+            SYS_CONSOLE_MESSAGE("TCP Socket Connected\r\n");
+            appData.state = APP_MANAGE_TCP_CLIENT;
+            break;
+
+
+        case APP_MANAGE_TCP_CLIENT:
+        {
+            char buffer[256];
+            buffer[0] = 0;
+            //SYS_CONSOLE_PRINT("Sending message \"%s is empty\" \r\n", VM_Items[j - 1]);
+            sprintf(buffer, "MSG:%d from %s : %s is empty", (int) MessageCounter++, (char *) TCPIP_HOSTS_CONFIGURATION[0].macAddr, (char *) VM_Items[bay_index - 1]);
+            SYS_CONSOLE_PRINT("Sending message: %s\r\n", buffer);
+            TCPIP_TCP_ArrayPut(appData.socket, (uint8_t*) buffer, strlen(buffer));
+            appData.state = APP_CLOSE_TCP_CLIENT;
+            break;
+        }
+
+        case APP_CLOSE_TCP_CLIENT:
+            /* TODO:[6] Close the TCP Socket
+             *        
+             */
+            TCPIP_TCP_Close(appData.socket);
+            appData.socket = INVALID_SOCKET;
+            SYS_CONSOLE_MESSAGE("TCP Client Closed\r\n\r\n\r\n");
+            appData.state = APP_TCPIP_TRANSACT;
+            break;
+
 
         default:
             break;
