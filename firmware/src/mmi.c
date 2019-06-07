@@ -260,7 +260,17 @@ void MMI_Tasks(void) {
                 vTaskDelay(pdMS_TO_TICKS(500));
                 LED_3_Toggle();
             }
+            
+            
         }
+         if (Previous_Value[CurrentIndex] != VM_Count[CurrentIndex]) {
+                sprintf(Oled_Text, "%c", VM_Count[CurrentIndex]);
+                gfx_mono_draw_string(Oled_Text, 117, 0, &sysfont);
+                gfx_mono_generic_draw_rect(112, 0, 16, 20, GFX_PIXEL_SET);
+            }
+            /* TODO: Handle error in application's state machine. */
+            Previous_Value[CurrentIndex] = VM_Count[CurrentIndex];
+            
 
             if (DisplayIP) {
                 static char pc[16] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -275,19 +285,11 @@ void MMI_Tasks(void) {
 
         case MMI_STATE_IDLE:
             break;
-
             /* The default state should never be executed. */
         default:
-        {
-            if (Previous_Value[CurrentIndex] != VM_Count[CurrentIndex]) {
-                sprintf(Oled_Text, "%c", VM_Count[CurrentIndex]);
-                gfx_mono_draw_string(Oled_Text, 117, 0, &sysfont);
-                gfx_mono_generic_draw_rect(112, 0, 16, 20, GFX_PIXEL_SET);
-            }
-            /* TODO: Handle error in application's state machine. */
-            Previous_Value[CurrentIndex] = VM_Count[CurrentIndex];
             break;
-        }
+           
+        
     }
 }
 
