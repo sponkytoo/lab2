@@ -188,7 +188,7 @@
           <LogicalPath dnOrder="2"/>
           <PhysicalPath dnOrder="3">/../../</PhysicalPath>
           <GeneratedChecksum dnOrder="4">294C77FC11F7312AF64871F5880E6A21</GeneratedChecksum>
-          <UserChecksum dnOrder="5">AD99526335E50F64B003913D34EDAFD7</UserChecksum>
+          <UserChecksum dnOrder="5">F8BB5BA032C4F59EBA01F741EDBC7533</UserChecksum>
         </File>
         <File dnOrder="23">
           <Type dnOrder="0">SOURCE</Type>
@@ -312,7 +312,7 @@
         </File>
         <File dnOrder="38">
           <Type dnOrder="0">SOURCE</Type>
-          <Name dnOrder="1">dyndns/index.htm</Name>
+          <Name dnOrder="1">dyndns\index.htm</Name>
           <LogicalPath dnOrder="2">web_pages/dyndns/</LogicalPath>
           <PhysicalPath dnOrder="3">/../../web_pages/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">53228E0208C7119283B2EFA61E066C15</GeneratedChecksum>
@@ -352,7 +352,7 @@
         </File>
         <File dnOrder="43">
           <Type dnOrder="0">SOURCE</Type>
-          <Name dnOrder="1">email/index.htm</Name>
+          <Name dnOrder="1">email\index.htm</Name>
           <LogicalPath dnOrder="2">web_pages/email/</LogicalPath>
           <PhysicalPath dnOrder="3">/../../web_pages/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">30FEBB4379CD80BE4928CAD37087F37D</GeneratedChecksum>
@@ -451,8 +451,8 @@
           <Name dnOrder="1">harmony.gif</Name>
           <LogicalPath dnOrder="2">web_pages/</LogicalPath>
           <PhysicalPath dnOrder="3">/../../web_pages/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">BE650686B2E37535FD6DA67DC866F9C7</GeneratedChecksum>
-          <UserChecksum dnOrder="5">BE650686B2E37535FD6DA67DC866F9C7</UserChecksum>
+          <GeneratedChecksum dnOrder="4">AE1714AC6E57E14D19518FF4EBC866B6</GeneratedChecksum>
+          <UserChecksum dnOrder="5">AE1714AC6E57E14D19518FF4EBC866B6</UserChecksum>
         </File>
         <File dnOrder="56">
           <Type dnOrder="0">SOURCE</Type>
@@ -467,8 +467,8 @@
           <Name dnOrder="1">hash_fnv.c</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xult_freertos/library/tcpip/src/</LogicalPath>
           <PhysicalPath dnOrder="3">/library/tcpip/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">C991566B83550177108342CDCF6888A6</GeneratedChecksum>
-          <UserChecksum dnOrder="5">C991566B83550177108342CDCF6888A6</UserChecksum>
+          <GeneratedChecksum dnOrder="4">C13333EC95D004AAFF2F78E20CDAC054</GeneratedChecksum>
+          <UserChecksum dnOrder="5">C13333EC95D004AAFF2F78E20CDAC054</UserChecksum>
         </File>
         <File dnOrder="58">
           <Type dnOrder="0">SOURCE</Type>
@@ -675,16 +675,16 @@
           <Name dnOrder="1">mchp.gif</Name>
           <LogicalPath dnOrder="2">web_pages/</LogicalPath>
           <PhysicalPath dnOrder="3">/../../web_pages/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">DF6CD46C7A96EBB3036608345EE12C90</GeneratedChecksum>
-          <UserChecksum dnOrder="5">DF6CD46C7A96EBB3036608345EE12C90</UserChecksum>
+          <GeneratedChecksum dnOrder="4">71E779193C34B7333839DE98314BD44A</GeneratedChecksum>
+          <UserChecksum dnOrder="5">71E779193C34B7333839DE98314BD44A</UserChecksum>
         </File>
         <File dnOrder="84">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">mchp.js</Name>
           <LogicalPath dnOrder="2">web_pages/</LogicalPath>
           <PhysicalPath dnOrder="3">/../../web_pages/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">FDEB5DD0CA25886B19520748BF15833A</GeneratedChecksum>
-          <UserChecksum dnOrder="5">FDEB5DD0CA25886B19520748BF15833A</UserChecksum>
+          <GeneratedChecksum dnOrder="4">81CACC84586E802DF9C0E851F03FC8D6</GeneratedChecksum>
+          <UserChecksum dnOrder="5">81CACC84586E802DF9C0E851F03FC8D6</UserChecksum>
         </File>
         <File dnOrder="85">
           <Type dnOrder="0">SOURCE</Type>
@@ -904,7 +904,7 @@
         </File>
         <File dnOrder="112">
           <Type dnOrder="0">SOURCE</Type>
-          <Name dnOrder="1">protect/config.htm</Name>
+          <Name dnOrder="1">protect\config.htm</Name>
           <LogicalPath dnOrder="2">web_pages/protect/</LogicalPath>
           <PhysicalPath dnOrder="3">/../../web_pages/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">94BD9ECAE121628FFE573BE70F884DA0</GeneratedChecksum>
@@ -912,7 +912,7 @@
         </File>
         <File dnOrder="113">
           <Type dnOrder="0">SOURCE</Type>
-          <Name dnOrder="1">protect/index.htm</Name>
+          <Name dnOrder="1">protect\index.htm</Name>
           <LogicalPath dnOrder="2">web_pages/protect/</LogicalPath>
           <PhysicalPath dnOrder="3">/../../web_pages/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">A704005B08138C056487580ECE8FF2E5</GeneratedChecksum>
@@ -920,7 +920,7 @@
         </File>
         <File dnOrder="114">
           <Type dnOrder="0">SOURCE</Type>
-          <Name dnOrder="1">protect/reboot.cgi</Name>
+          <Name dnOrder="1">protect\reboot.cgi</Name>
           <LogicalPath dnOrder="2">web_pages/protect/</LogicalPath>
           <PhysicalPath dnOrder="3">/../../web_pages/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">7302474C63C9A8C7D813D2AA26D15152</GeneratedChecksum>
@@ -928,7 +928,7 @@
         </File>
         <File dnOrder="115">
           <Type dnOrder="0">SOURCE</Type>
-          <Name dnOrder="1">protect/reboot.htm</Name>
+          <Name dnOrder="1">protect\reboot.htm</Name>
           <LogicalPath dnOrder="2">web_pages/protect/</LogicalPath>
           <PhysicalPath dnOrder="3">/../../web_pages/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">D070BA177FFF082BF3E9D8A44E05413E</GeneratedChecksum>
@@ -1035,12 +1035,12 @@
           <Name dnOrder="1">snmp.bib</Name>
           <LogicalPath dnOrder="2">web_pages/</LogicalPath>
           <PhysicalPath dnOrder="3">/../../web_pages/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">03E1F13C1FEC2238F8531C0CEDEEA85F</GeneratedChecksum>
-          <UserChecksum dnOrder="5">03E1F13C1FEC2238F8531C0CEDEEA85F</UserChecksum>
+          <GeneratedChecksum dnOrder="4">F022BD67C3B36B01BAFC3E82645B09B6</GeneratedChecksum>
+          <UserChecksum dnOrder="5">F022BD67C3B36B01BAFC3E82645B09B6</UserChecksum>
         </File>
         <File dnOrder="129">
           <Type dnOrder="0">SOURCE</Type>
-          <Name dnOrder="1">snmp/snmpconfig.htm</Name>
+          <Name dnOrder="1">snmp\snmpconfig.htm</Name>
           <LogicalPath dnOrder="2">web_pages/snmp/</LogicalPath>
           <PhysicalPath dnOrder="3">/../../web_pages/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">45C66E36F53F0DE7BC010A1D44E9AA9D</GeneratedChecksum>
@@ -1587,8 +1587,8 @@
           <Name dnOrder="1">configuration.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xult_freertos/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">C4FB8B80217A9BFE890C1F7849472C12</GeneratedChecksum>
-          <UserChecksum dnOrder="5">C4FB8B80217A9BFE890C1F7849472C12</UserChecksum>
+          <GeneratedChecksum dnOrder="4">95566D7282C133D73519396E4A658FB9</GeneratedChecksum>
+          <UserChecksum dnOrder="5">95566D7282C133D73519396E4A658FB9</UserChecksum>
         </File>
         <File dnOrder="198">
           <Type dnOrder="0">HEADER</Type>
@@ -1891,8 +1891,8 @@
           <Name dnOrder="1">dhcpv6_private.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xult_freertos/library/tcpip/src/</LogicalPath>
           <PhysicalPath dnOrder="3">/library/tcpip/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">EE4C12B024DF501553198683E269F76C</GeneratedChecksum>
-          <UserChecksum dnOrder="5">EE4C12B024DF501553198683E269F76C</UserChecksum>
+          <GeneratedChecksum dnOrder="4">6E702380CD8DF690879006BDF9AE8539</GeneratedChecksum>
+          <UserChecksum dnOrder="5">6E702380CD8DF690879006BDF9AE8539</UserChecksum>
         </File>
         <File dnOrder="236">
           <Type dnOrder="0">HEADER</Type>
@@ -2243,8 +2243,8 @@
           <Name dnOrder="1">http.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xult_freertos/library/tcpip/</LogicalPath>
           <PhysicalPath dnOrder="3">/library/tcpip/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">C6F62C11FAA034A0B5CAF1BA5AE46D96</GeneratedChecksum>
-          <UserChecksum dnOrder="5">C6F62C11FAA034A0B5CAF1BA5AE46D96</UserChecksum>
+          <GeneratedChecksum dnOrder="4">9805EFA6EE88BF41470A6812F8CE2D69</GeneratedChecksum>
+          <UserChecksum dnOrder="5">9805EFA6EE88BF41470A6812F8CE2D69</UserChecksum>
         </File>
         <File dnOrder="280">
           <Type dnOrder="0">HEADER</Type>
@@ -2259,8 +2259,8 @@
           <Name dnOrder="1">http_net.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xult_freertos/library/tcpip/</LogicalPath>
           <PhysicalPath dnOrder="3">/library/tcpip/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">74EA639FBAF1BE73FA20A41845C5D3C6</GeneratedChecksum>
-          <UserChecksum dnOrder="5">74EA639FBAF1BE73FA20A41845C5D3C6</UserChecksum>
+          <GeneratedChecksum dnOrder="4">32466CFC40EA2A40367B6CD376DE4637</GeneratedChecksum>
+          <UserChecksum dnOrder="5">32466CFC40EA2A40367B6CD376DE4637</UserChecksum>
         </File>
         <File dnOrder="282">
           <Type dnOrder="0">HEADER</Type>
@@ -2339,8 +2339,8 @@
           <Name dnOrder="1">igmp.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xult_freertos/library/tcpip/</LogicalPath>
           <PhysicalPath dnOrder="3">/library/tcpip/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">D9162426B371F31641252F6DB39A16CA</GeneratedChecksum>
-          <UserChecksum dnOrder="5">D9162426B371F31641252F6DB39A16CA</UserChecksum>
+          <GeneratedChecksum dnOrder="4">0AE492D7EAE1B78F3216E99A50DE6450</GeneratedChecksum>
+          <UserChecksum dnOrder="5">0AE492D7EAE1B78F3216E99A50DE6450</UserChecksum>
         </File>
         <File dnOrder="292">
           <Type dnOrder="0">HEADER</Type>
@@ -3147,8 +3147,8 @@
           <Name dnOrder="1">snmpv3.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xult_freertos/library/tcpip/</LogicalPath>
           <PhysicalPath dnOrder="3">/library/tcpip/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">25664B4D1257A84E248A2D9DB5C42DA1</GeneratedChecksum>
-          <UserChecksum dnOrder="5">25664B4D1257A84E248A2D9DB5C42DA1</UserChecksum>
+          <GeneratedChecksum dnOrder="4">7D37ADE43B8A1253E721A470522E1CEB</GeneratedChecksum>
+          <UserChecksum dnOrder="5">7D37ADE43B8A1253E721A470522E1CEB</UserChecksum>
         </File>
         <File dnOrder="393">
           <Type dnOrder="0">HEADER</Type>
@@ -3907,8 +3907,8 @@
       </Settings>
     </Manifest>
     <Settings dnOrder="4">
-      <Setting dnOrder="0" key="CMSISPath" value="./dev_packs/arm/CMSIS/5.4.0"/>
-      <Setting dnOrder="1" key="DFPPath" value="./dev_packs/Microchip/SAME70_DFP/4.0.26/same70b/atdf/ATSAME70Q21B.atdf"/>
+      <Setting dnOrder="0" key="CMSISPath" value=".\dev_packs\arm\CMSIS\5.4.0"/>
+      <Setting dnOrder="1" key="DFPPath" value=".\dev_packs\Microchip\SAME70_DFP\4.0.26\same70b\atdf\ATSAME70Q21B.atdf"/>
       <Setting dnOrder="2" key="FORCE_OPTIMIZATION" value="false"/>
       <Setting dnOrder="3" key="GENERATE_BACKUP" value="true"/>
       <Setting dnOrder="4" key="MERGE_STRATEGY" value="USER_RECENT"/>
