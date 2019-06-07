@@ -207,7 +207,7 @@ void APP_Tasks(void) {
     };
     IPV4_ADDR ipAddr;
     int i;
-    const char *netName, *netBiosName;
+    //const char *netName, *netBiosName;
     static uint32_t startTick = 0;
     static uint32_t blink = 2;
     static unsigned int count = 0;
@@ -260,7 +260,7 @@ void APP_Tasks(void) {
 #if defined(TCPIP_STACK_USE_NBNS)
                     SYS_CONSOLE_PRINT("    Interface %s on host %s - NBNS enabled\r\n", netName, netBiosName);
 #else
-                    SYS_CONSOLE_PRINT("    Interface %s on host %s - NBNS disabled\r\n", netName, netBiosName);
+                    SYS_CONSOLE_PRINT("    Interface %s on host %s - NBNS disabled\r\n", appData.netName, appData.netBiosName);
 #endif // defined(TCPIP_STACK_USE_NBNS)
 
 #if defined(TCPIP_STACK_USE_ZEROCONF_MDNS_SD)
@@ -285,7 +285,7 @@ void APP_Tasks(void) {
                 HTTP_APP_Initialize();
 #endif // defined(TCPIP_STACK_USE_HTTP_NET_SERVER)
 
-                SYS_CONSOLE_PRINT("\r\n%s -sends message to the server when a Bay is empty\r\n\r\n", appData.netBiosName);
+                SYS_CONSOLE_PRINT("\r\n%s -sends message to the server when a Bay is empty\r\n\r\n",appData.netBiosName);
                 appData.state = APP_TCPIP_TRANSACT;
             }
 
@@ -328,7 +328,7 @@ void APP_Tasks(void) {
                     bay_index = 0;
                 }
                 if (VM_Count[bay_index] == '0') {
-                    SYS_CONSOLE_PRINT("%s-Sending VM Status\r\n", appData.netName);
+                    SYS_CONSOLE_PRINT("%s-Sending VM Status\r\n", appData.netBiosName);
                     appData.state = APP_SETUP_TCP_CLIENT;
                 }
                 bay_index++;
@@ -339,15 +339,23 @@ void APP_Tasks(void) {
         case APP_SETUP_TCP_CLIENT:
         {
             IPV4_ADDR addr;
+            //*****************************************************************************************
+            /*TODO[3]  : Replace the x with the IP address.For example if the server IP adress is 192.168.0.108  repalce 
+             *               x1 with 192
+             *               x2 wirh 168
+             *               x3 with  0
+             *               x4 with 108 
+             */
 
-            addr.v[0] = 192;
-            addr.v[1] = 168;
-            addr.v[2] = 0;
-            addr.v[3] = 108;
+            addr.v[0] = x1;
+            addr.v[1] = x2;
+            addr.v[2] = x3;
+            addr.v[3] = x4;
             appData.port = 80;
-            appData.socket = TCPIP_TCP_ClientOpen(IP_ADDRESS_TYPE_IPV4,
-                    appData.port,
-                    (IP_MULTI_ADDRESS*) & addr);
+            /************************************************************************************************
+            TODO[4]: Code to open a TCP_IP client
+             */
+            //<--Insert the solution for TODO[4] starting on this line? 
 
             if (appData.socket == INVALID_SOCKET) {
                 SYS_CONSOLE_MESSAGE("Could not start connection\r\n");
@@ -361,16 +369,26 @@ void APP_Tasks(void) {
 
 
         case APP_WAIT_FOR_TCP_CONNECTION:
-            if (!TCPIP_TCP_IsConnected(appData.socket)) {
-                if (NETWORKCOMS_IsTickPeriodElapsed(appData.timeoutTick, TCP_CLIENT_CONNECTION_TIMEOUT_PERIOD_ms)) {
-                    SYS_CONSOLE_MESSAGE("Timeout: TCP Socket could not be established\r\n");
-                    appData.state = APP_CLOSE_TCP_CLIENT;
-                }
-                break;
+            /************************************************************************************************
+            TODO[5]: Code to open a TCP_IP client
+             */
+            //<--Insert the solution for TODO[5] starting on this line? 
+
+        {
+            if (NETWORKCOMS_IsTickPeriodElapsed(appData.timeoutTick, TCP_CLIENT_CONNECTION_TIMEOUT_PERIOD_ms)) {
+                SYS_CONSOLE_MESSAGE("Timeout: TCP Socket could not be established\r\n");
+                appData.state = APP_CLOSE_TCP_CLIENT;
             }
-            if (TCPIP_TCP_PutIsReady(appData.socket) == 0) {
-                break;
-            }
+            break;
+        }
+            /************************************************************************************************
+           TODO[6]: Code to open a TCP_IP client
+             */
+            //<--Insert the solution for TODO[6] starting on this line? 
+
+        {
+            break;
+        }
 
             SYS_CONSOLE_MESSAGE("TCP Socket Connected\r\n");
             appData.state = APP_MANAGE_TCP_CLIENT;
@@ -381,19 +399,22 @@ void APP_Tasks(void) {
         {
             char buffer[256];
             buffer[0] = 0;
-            //SYS_CONSOLE_PRINT("Sending message \"%s is empty\" \r\n", VM_Items[j - 1]);
-            sprintf(buffer, "MSG:%d from %s : %s is empty", (int) MessageCounter++, (char *) TCPIP_HOSTS_CONFIGURATION[0].macAddr, (char *) VM_Items[bay_index - 1]);
-            SYS_CONSOLE_PRINT("Sending message: %s\r\n", buffer);
-            TCPIP_TCP_ArrayPut(appData.socket, (uint8_t*) buffer, strlen(buffer));
+            /************************************************************************************************
+             TODO[7]: Send the message to the common Server at port 80
+             */
+            //<--Insert the solution for TODO[7] starting on this line? 
+
+
             appData.state = APP_CLOSE_TCP_CLIENT;
             break;
         }
 
         case APP_CLOSE_TCP_CLIENT:
-            /* TODO:[6] Close the TCP Socket
-             *        
+            /************************************************************************************************
+         TODO[8]: close the Client-socket
              */
-            TCPIP_TCP_Close(appData.socket);
+            //<--Insert the solution for TODO[8] starting on this line? 
+
             appData.socket = INVALID_SOCKET;
             SYS_CONSOLE_MESSAGE("TCP Client Closed\r\n\r\n\r\n");
             appData.state = APP_TCPIP_TRANSACT;
@@ -405,6 +426,45 @@ void APP_Tasks(void) {
     }
 }
 
-/*******************************************************************************
- End of File
- */
+/********************************************************************************************************************
+/*TOCO[4]
+ 
+   appData.socket = TCPIP_TCP_ClientOpen(IP_ADDRESS_TYPE_IPV4,
+                    appData.port,
+                    (IP_MULTI_ADDRESS*) & addr);
+ * ******************************************************************************************************************
+ * 
+ *  
+ * TODO[5]
+ * 
+ * 
+ *   if (!TCPIP_TCP_IsConnected(appData.socket))
+ * 
+ * ********************************************************************************************************************
+ * 
+ * TODO[6]
+ * 
+ * if (TCPIP_TCP_PutIsReady(appData.socket) == 0)
+ * 
+ * 
+ * *********************************************************************************************************************
+ * 
+ * TODO[7]
+ * 
+ *      sprintf(buffer, "MSG:%d from %s : %s is empty", (int) MessageCounter++, (char *)     TCPIP_HOSTS_CONFIGURATION[0].macAddr, (char *) VM_Items[bay_index - 1]);
+ *      SYS_CONSOLE_PRINT("Sending message: %s\r\n", buffer);
+ *      TCPIP_TCP_ArrayPut(appData.socket, (uint8_t*) buffer, strlen(buffer));
+ * 
+ * 
+ * *********************************************************************************************************************
+ * 
+ * 
+ * TODO[8]
+ * 
+ * TCPIP_TCP_Close(appData.socket);
+ * 
+ * *********************************************************************************************************************
+ 
+
+    
+ 

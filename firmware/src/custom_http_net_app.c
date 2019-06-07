@@ -257,6 +257,9 @@ TCPIP_HTTP_NET_IO_RESULT TCPIP_HTTP_NET_ConnectionGetExecute(TCPIP_HTTP_NET_CONN
     httpDataBuff = TCPIP_HTTP_NET_ConnectionDataBufferGet(connHandle);
 if(!memcmp(filename, "VM.htm", 6))
     {
+    //*****************************************************************************************
+        /*TODO[1]      */
+                         //<--Insert the solution for TODO[1]  starting on this line 
        ptr = TCPIP_HTTP_NET_ArgGet(httpDataBuff, (const uint8_t *)"ITEM");       
             Update_Item=*ptr;
             
@@ -287,8 +290,9 @@ if(!memcmp(filename, "VM.htm", 6))
                  Update_Item = 0;
             }
             
-       ptr = TCPIP_HTTP_NET_ArgGet(httpDataBuff, (const uint8_t *)"COUNT");
-            VM_Count[Update_Item]=*ptr;
+    //*****************************************************************************************
+    /*TODO[2]      */
+                         //<--Insert the solution for TODO[2]  starting on this line 
 }
     // If its the forms.htm page
     if(!memcmp(filename, "forms.htm", 9))
@@ -2177,3 +2181,17 @@ TCPIP_HTTP_DYN_PRINT_RES TCPIP_HTTP_Print_write_comm(TCPIP_HTTP_NET_CONN_HANDLE 
 }
 
 #endif // #if defined(TCPIP_STACK_USE_HTTP_SERVER)
+/***************************************************************************************************************/
+       
+       /*TODO[1]*/
+          /*  
+           ptr = TCPIP_HTTP_NET_ArgGet(httpDataBuff, (const uint8_t *)"ITEM");    
+       
+           */
+       /*TODO[2]*/
+          /*
+            ptr = TCPIP_HTTP_NET_ArgGet(httpDataBuff, (const uint8_t *)"COUNT");
+            VM_Count[Update_Item]=*ptr;
+                      
+           * /
+ ****************************************************************************************************************/

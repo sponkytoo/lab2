@@ -1,0 +1,28 @@
+build/sam_e70_xult_freertos/production/_ext/1839511917/wc_encrypt.o:  \
+ ../src/config/sam_e70_xult_freertos/crypto/src/wc_encrypt.c  \
+ ../src/config/sam_e70_xult_freertos/crypto/src/settings.h  \
+ ../src/config/sam_e70_xult_freertos/configuration.h  \
+ ../src/config/sam_e70_xult_freertos/user.h  \
+ ../src/config/sam_e70_xult_freertos/toolchain_specifics.h  \
+ ../src/config/sam_e70_xult_freertos/crypto/src/visibility.h  \
+ ../src/config/sam_e70_xult_freertos/crypto/src/aes.h  \
+ ../src/config/sam_e70_xult_freertos/crypto/src/types.h  \
+ ../src/config/sam_e70_xult_freertos/crypto/src/wc_port.h  \
+ ../src/config/sam_e70_xult_freertos/crypto/src/memory.h  \
+ ../src/config/sam_e70_xult_freertos/crypto/src/des3.h  \
+ ../src/config/sam_e70_xult_freertos/crypto/src/hash.h  \
+ ../src/config/sam_e70_xult_freertos/crypto/src/md5.h  \
+ ../src/config/sam_e70_xult_freertos/crypto/src/sha.h  \
+ ../src/config/sam_e70_xult_freertos/crypto/src/sha256.h  \
+ ../src/config/sam_e70_xult_freertos/crypto/src/sha512.h  \
+ ../src/config/sam_e70_xult_freertos/crypto/src/md4.h  \
+ ../src/config/sam_e70_xult_freertos/crypto/src/arc4.h  \
+ ../src/config/sam_e70_xult_freertos/crypto/src/wc_encrypt.h  \
+ ../src/config/sam_e70_xult_freertos/crypto/src/chacha.h  \
+ ../src/config/sam_e70_xult_freertos/crypto/src/error-crypt.h  \
+ ../src/config/sam_e70_xult_freertos/crypto/src/asn.h  \
+ ../src/config/sam_e70_xult_freertos/crypto/src/coding.h  \
+ ../src/config/sam_e70_xult_freertos/crypto/src/pwdbased.h  \
+ ../src/config/sam_e70_xult_freertos/crypto/src/logging.h  \
+ ../src/config/sam_e70_xult_freertos/crypto/src/misc.c  \
+ ../src/config/sam_e70_xult_freertos/crypto/src/misc.h 
