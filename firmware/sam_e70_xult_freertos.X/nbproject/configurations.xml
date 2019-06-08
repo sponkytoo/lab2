@@ -739,11 +739,11 @@
         <itemPath>../src/web_pages/upload.htm</itemPath>
       </logicalFolder>
       <itemPath>../src/http_net_print.c</itemPath>
+      <itemPath>../src/custom_http_net_app.c</itemPath>
       <itemPath>../src/mpfs_net_img.c</itemPath>
+      <itemPath>../src/app.c</itemPath>
       <itemPath>../src/mmi.c</itemPath>
       <itemPath>../src/main.c</itemPath>
-      <itemPath>../src/custom_http_net_app_solution.c</itemPath>
-      <itemPath>../src/app.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -967,13 +967,18 @@
                   value="${memories.instruction.ram.ranges}"/>
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="400000-5fffff"/>
+        <property key="poweroptions.powerenable" value="false"/>
+        <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.preservedataflash" value="false"/>
+        <property key="programoptions.preservedataflash.ranges"
+                  value="${memories.dataflash.default}"/>
         <property key="programoptions.preserveeeprom" value="false"/>
         <property key="programoptions.preserveeeprom.ranges" value=""/>
         <property key="programoptions.preserveprogram.ranges" value=""/>
         <property key="programoptions.preserveprogramrange" value="false"/>
         <property key="programoptions.preserveuserid" value="false"/>
         <property key="programoptions.programuserotp" value="false"/>
+        <property key="voltagevalue" value=""/>
       </EdbgTool>
       <ICD4Tool>
         <property key="AutoSelectMemRanges" value="auto"/>

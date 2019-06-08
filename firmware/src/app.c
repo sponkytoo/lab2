@@ -254,11 +254,11 @@ void APP_Tasks(void) {
 
                 for (i = 0; i < nNets; i++) {
                     netH = TCPIP_STACK_IndexToNet(i);
-                    netName = TCPIP_STACK_NetNameGet(netH);
-                    netBiosName = TCPIP_STACK_NetBIOSName(netH);
+                    appData.netName = TCPIP_STACK_NetNameGet(netH);
+                    appData.netBiosName = TCPIP_STACK_NetBIOSName(netH);
 
 #if defined(TCPIP_STACK_USE_NBNS)
-                    SYS_CONSOLE_PRINT("    Interface %s on host %s - NBNS enabled\r\n", netName, netBiosName);
+                    SYS_CONSOLE_PRINT("    Interface %s on host %s - NBNS enabled\r\n", appData.netName, appData.netBiosName);
 #else
                     SYS_CONSOLE_PRINT("    Interface %s on host %s - NBNS disabled\r\n", appData.netName, appData.netBiosName);
 #endif // defined(TCPIP_STACK_USE_NBNS)
@@ -427,7 +427,7 @@ void APP_Tasks(void) {
 }
 
 /********************************************************************************************************************
-/*TOCO[4]
+*TOCO[4]
  
    appData.socket = TCPIP_TCP_ClientOpen(IP_ADDRESS_TYPE_IPV4,
                     appData.port,
@@ -463,7 +463,7 @@ void APP_Tasks(void) {
  * 
  * TCPIP_TCP_Close(appData.socket);
  * 
- * *********************************************************************************************************************
+ * *********************************************************************************************************************/
  
 
     
